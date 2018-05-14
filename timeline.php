@@ -1,113 +1,141 @@
-<html>
+<!doctype html>
+<html lang="en" class="no-js">
 <head>
-	<link rel="stylesheet" href="css/timeline.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Fira+Sans:400,400italic' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+  <link rel="stylesheet" href="css/style2.css"> <!-- Resource style -->
+  <script src="js/modernizr.js"></script> <!-- Modernizr -->
+    
+  <title>Horizontal Timeline | CodyHouse</title>
 </head>
 <body>
-<section class="intro">
-  <div class="container">
-    <h1>Vertical Timeline &darr;</h1>
-  </div>
-</section>
+<section class="cd-horizontal-timeline">
+  <div class="timeline">
+    <div class="events-wrapper">
+      <div class="events">
+        <ol>
+          <li><a href="#0" data-date="16/01/2014" class="selected">16 Jan</a></li>
+          <li><a href="#0" data-date="28/02/2014">28 Feb</a></li>
+          <li><a href="#0" data-date="20/04/2014">20 Mar</a></li>
+          <li><a href="#0" data-date="20/05/2014">20 May</a></li>
+          <li><a href="#0" data-date="09/07/2014">09 Jul</a></li>
+          <li><a href="#0" data-date="30/08/2014">30 Aug</a></li>
+          <li><a href="#0" data-date="15/09/2014">15 Sep</a></li>
+          <li><a href="#0" data-date="01/11/2014">01 Nov</a></li>
+          <li><a href="#0" data-date="10/12/2014">10 Dec</a></li>
+          <li><a href="#0" data-date="19/01/2015">29 Jan</a></li>
+          <li><a href="#0" data-date="03/03/2015">3 Mar</a></li>
+        </ol>
 
-<section class="timeline">
-  <ul>
-    <li>
-      <div>
-        <time>1934</time> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1937</time> Proin quam velit, efficitur vel neque vitae, rhoncus commodo mi. Suspendisse finibus mauris et bibendum molestie. Aenean ex augue, varius et pulvinar in, pretium non nisi.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1940</time> Proin iaculis, nibh eget efficitur varius, libero tellus porta dolor, at pulvinar tortor ex eget ligula. Integer eu dapibus arcu, sit amet sollicitudin eros.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1943</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1946</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1956</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1957</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1967</time> Aenean condimentum odio a bibendum rhoncus. Ut mauris felis, volutpat eget porta faucibus, euismod quis ante.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1977</time> Vestibulum porttitor lorem sed pharetra dignissim. Nulla maximus, dui a tristique iaculis, quam dolor convallis enim, non dignissim ligula ipsum a turpis.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1985</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>2000</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>2005</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-  </ul>
+        <span class="filling-line" aria-hidden="true"></span>
+      </div> <!-- .events -->
+    </div> <!-- .events-wrapper -->
+      
+    <ul class="cd-timeline-navigation">
+      <li><a href="#0" class="prev inactive">Prev</a></li>
+      <li><a href="#0" class="next">Next</a></li>
+    </ul> <!-- .cd-timeline-navigation -->
+  </div> <!-- .timeline -->
+
+  <div class="events-content">
+    <ol>
+      <li class="selected" data-date="16/01/2014">
+        <h2>Horizontal Timeline</h2>
+        <em>January 16th, 2014</em>
+        <p> 
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+        </p>
+      </li>
+
+      <li data-date="28/02/2014">
+        <h2>Event title here</h2>
+        <em>February 28th, 2014</em>
+        <p> 
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+        </p>
+      </li>
+
+      <li data-date="20/04/2014">
+        <h2>Event title here</h2>
+        <em>March 20th, 2014</em>
+        <p> 
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+        </p>
+      </li>
+
+      <li data-date="20/05/2014">
+        <h2>Event title here</h2>
+        <em>May 20th, 2014</em>
+        <p> 
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+        </p>
+      </li>
+
+      <li data-date="09/07/2014">
+        <h2>Event title here</h2>
+        <em>July 9th, 2014</em>
+        <p> 
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+        </p>
+      </li>
+
+      <li data-date="30/08/2014">
+        <h2>Event title here</h2>
+        <em>August 30th, 2014</em>
+        <p> 
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+        </p>
+      </li>
+
+      <li data-date="15/09/2014">
+        <h2>Event title here</h2>
+        <em>September 15th, 2014</em>
+        <p> 
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+        </p>
+      </li>
+
+      <li data-date="01/11/2014">
+        <h2>Event title here</h2>
+        <em>November 1st, 2014</em>
+        <p> 
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+        </p>
+      </li>
+
+      <li data-date="10/12/2014">
+        <h2>Event title here</h2>
+        <em>December 10th, 2014</em>
+        <p> 
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+        </p>
+      </li>
+
+      <li data-date="19/01/2015">
+        <h2>Event title here</h2>
+        <em>January 19th, 2015</em>
+        <p> 
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+        </p>
+      </li>
+
+      <li data-date="03/03/2015">
+        <h2>Event title here</h2>
+        <em>March 3rd, 2015</em>
+        <p> 
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+        </p>
+      </li>
+    </ol>
+  </div> <!-- .events-content -->
 </section>
+  
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/jquery.mobile.custom.min.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
 </body>
-<script type="text/javascript">
-(function() {
-
-  'use strict';
-
-  // define variables
-  var items = document.querySelectorAll(".timeline li");
-
-  // check if an element is in viewport
-  // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
-  function isElementInViewport(el) {
-    var rect = el.getBoundingClientRect();
-    return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-  }
-
-  function callbackFunc() {
-    for (var i = 0; i < items.length; i++) {
-      if (isElementInViewport(items[i])) {
-        items[i].classList.add("in-view");
-      }
-    }
-  }
-
-  // listen for events
-  window.addEventListener("load", callbackFunc);
-  window.addEventListener("resize", callbackFunc);
-  window.addEventListener("scroll", callbackFunc);
-
-})();
-
-</script>
 </html>
