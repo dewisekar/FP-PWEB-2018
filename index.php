@@ -49,7 +49,12 @@
         <li><a href="klasemen.php">Klasemen</a></li>
         </ul>
       <li><a href="syarat.php">Pendaftaran</a></li>
-      <li><a href="login.php">Login</a></li>  
+      <li><span>Login</span>
+        <ul>
+          <li><a href="login.php">User Login</a></li>
+          <li><a href="admin_login.php">Admin Login</a></li>
+        </ul>
+      </li>  
     </ul>
   </nav>
 </div>

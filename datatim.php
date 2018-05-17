@@ -344,28 +344,30 @@
       <h2>Tambah Pemain</h2>
     </div>
     <div class="modal-body">
-      	<form action="/action_page.php">
+      	<form action="action_datatim.php" name="myForm" onsubmit="return validateForm()" method="POST">
 		  <div class="form-group">
 		    <label for="email">Nama Tim:</label>
-		    <input type="text" class="form-control" id="tim_nama">
+		    <input type="text" class="form-control" name="tim_nama" required>
 		  </div>
 		  <div class="form-group">
 		    <label for="pwd">Username:</label>
-		    <input type="text" class="form-control" id="tim_username" placeholder="Format: departemen_putra/putri">
+		    <input type="text" class="form-control" name="tim_username" placeholder="Format: departemen_putra/putri" required>
 		  </div>
 		  <div class="form-group">
 		    <label for="pwd">Password</label>
-		    <input type="password" class="form-control" id="tim_password">
+		    <input type="password" class="form-control" name="tim_password" placeholder="Minimal 6 karakter"> 
 		  </div>
 		  <div class="form-group">
 		  	<label for="pwd">Putra/Putri: </label>
-		    <select class="form-control" id="tim_papi">
+		    <select class="form-control" name="tim_papi">
                <option>Putra</option>
                <option>Putri</option>
              </select>
 		  </div>
 		  <div class="form-group">
-		  	<button type="submit" class="btn btn-default">Submit</button>
+		  	<a>
+	        	<input type="submit" value="Sign In" name="submit">
+	        </a>
 		  </div>
 		</form>
     </div>
@@ -419,3 +421,14 @@ window.onclick = function(event) {
     }
 }}
 </script>
+<script type="text/javascript">
+	function validateForm() {
+    var x = document.forms["myForm"]["tim_password"].value;
+    var sx = x.length;
+    if (sx< 6) {
+        alert("Password minimal 6 karakter!");
+        return false;
+    }
+}
+</script>
+
