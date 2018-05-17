@@ -1,8 +1,3 @@
-<?php
-	@session_start();
-	include "dbconnect.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <!--<![endif]-->
@@ -21,7 +16,9 @@
 	                <div class="loginBox">
 	                    <h2> Log In Here </h2>
 	                    <form  method="POST" action="action_login.php">
-	                        <div class="form-group row">	
+	                        <div class="form-group row">
+	                        	<a href="/"> <img style="width:30%" src="images/logoifc2.png" class="user"></img></a>
+	
 	                        	<p>Username</p>                          
 	                            <div class="col-md-6">
 	                                <input type="text" id="username" placeholder="Enter Username" name="username" >

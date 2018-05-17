@@ -6,9 +6,7 @@
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Fira+Sans:400,400italic' rel='stylesheet' type='text/css'>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--[if lte IE 8]>
-<script src="js/html5shiv.js"></script>
-<![endif]-->
+<!--[if lte IE 8]>-->
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.dropotron.js"></script>
 <script src="js/skel.min.js"></script>
@@ -17,8 +15,7 @@
 <script src="js/main.js"></script> <!-- Resource jQuery -->
 <script type="text/javascript" src="js/jquery.visible.js" charset="utf-8"></script>
 <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" charset="utf-8"></script>
-
-<noscript>
+<script src="js/html5shiv.js"></script><noscript>
 
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/style.css">
@@ -47,7 +44,8 @@
       <li><a href="index.php">Home</a></li>
       <li><a href="left-sidebar.html">Galeri</a></li>
       <li><a href="right-sidebar.html">Klasemen</a></li>
-      <li><a href="right-sidebar.html">Pendaftaran</a></li>
+      <li><a href="syarat.php">Pendaftaran</a></li>
+      <li><a href="login.php">Login</a></li>
     </ul>
   </nav>
 </div>
@@ -114,7 +112,7 @@
     <div class="col-md-2">
     </div>
     <div class="col-md-4 animate fadeInLeft">      
-        <a href="#" class="btn" style="font-size: 0.75em; "> Lihat syarat, timeline, dan cara pendaftaran </a>      
+        <a href="syarat.php" class="btn" style="font-size: 0.75em; "> Lihat syarat, timeline, dan cara pendaftaran </a>      
     </div>
     <div class="col-md-4 animate fadeInRight">   
         <a href="#" class="btn" style="font-size: 0.75em;"> Already join? </a>

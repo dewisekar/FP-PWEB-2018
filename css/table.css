@@ -1,0 +1,19 @@
+table, td, th{
+	border: 1px solid white;
+	color: white;
+	font-family: 'Source Sans Pro', sans-
+}
+th{
+	font-size: 22px;
+	font-weight: bold;
+	text-align: center;
+	padding: 4px;
+}
+td{
+	padding: 4px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+th{
+	background-color: rgba(23,51,89,0.6);
+	
