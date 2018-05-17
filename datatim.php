@@ -9,6 +9,15 @@
     window.location.href="admin_login.php";
    </script> <?php
  }
+ $qry="SELECT * FROM users where u_papi = 0";
+ $result = mysqli_query($con,$qry);
+ $row = mysqli_fetch_all($result,MYSQLI_ASSOC); 
+ $qry1="SELECT * FROM users where u_papi = 1";
+ $result = mysqli_query($con,$qry1);
+ $row1 = mysqli_fetch_all($result,MYSQLI_ASSOC); 
+ $no = 0;
+ $no1 = 0; 
+ mysqli_close($con);
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -166,11 +175,14 @@
 			</tr>
 			</thead>
 			<tbody>
+			<?php for ($i=0;$i<sizeof($row);$i++) { ?>
 			<tr>
-				<td>John</td>
-				<td>Cena</td>
+				<td><?php echo ++$no?>.</td>
+				<td><?php echo $row[$i]['u_nama']?></td>
+				<td><?php echo $row[$i]['u_username']?></td>
 				<td>121</td>
-				<td>121</td>
+			</tr>
+				<?php } ?>
 			</tbody>
 		</table>
   		</div>
@@ -216,12 +228,14 @@
 			</tr>
 			</thead>
 			<tbody>
+			<?php for ($i=0;$i<sizeof($row1);$i++) { ?>
 			<tr>
-				<td>John</td>
-				<td>Cena</td>
-				<td>121</td>
+				<td><?php echo ++$no1?>.</td>
+				<td><?php echo $row[$i]['u_nama']?></td>
+				<td><?php echo $row[$i]['u_username']?></td>
 				<td>121</td>
 			</tr>
+				<?php } ?>
 			</tbody>
 		</table>
   		</div>
@@ -232,7 +246,7 @@
 
 <div id="footer" style="padding-top: 0">
   <div class="container">
-  	<h2 style="margin-top: 0; text-align: center;"><strong style="font-size: 30px;"> MORE INFORMATION:</strong></h2>
+  	<h2 style="margin-top: 1%; text-align: center;"><strong style="font-size: 30px;"> MORE INFORMATION:</strong></h2>
     <p style="margin-bottom: 2%; text-align: center;"> Mar'atun: Line: atunmaratun | HP: 08977566064 </p>
     <section class="contact">
           <ul class="icons" style="background: rgba(24,65,80,0.4); margin-top: 0%;">

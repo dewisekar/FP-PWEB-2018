@@ -2,13 +2,14 @@
   include 'dbconnect.php';
   
   session_start();
-  if (!isset($_SESSION['a_username'])) {
+  if (!isset($_SESSION['u_username'])) {
   ?>
    <script type="text/javascript">
     alert("Login First!");
     window.location.href="login.php";
    </script> <?php
  }
+ $id= $_SESSION['u_username'];
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -358,28 +359,33 @@
       <h2>Tambah Pemain</h2>
     </div>
     <div class="modal-body">
-      	<form action="/action_page.php">
+      	<form action="action_tambahpemain.php" method="POST" onsubmit="return validateForm()" name="myForm">
 		  <div class="form-group">
 		    <label for="email">Nama:</label>
-		    <input type="text" class="form-control" id="p_nama">
+		    <input type="text" class="form-control" name="p_nama" required>
 		  </div>
 		  <div class="form-group">
 		    <label for="pwd">NRP:</label>
-		    <input type="text" class="form-control" id="p_nrp" placeholder="NRP 14 digit">
+		    <input type="text" class="form-control" name="p_nrp" placeholder="NRP 14 digit" required>
 		  </div>
 		  <div class="form-group">
 		    <label for="pwd">No. Punggung</label>
-		    <input type="text" class="form-control" id="p_nopunggung">
+		    <input type="text" class="form-control" name="p_nopunggung" required>
+		  </div>
+		  <div class="form-group">
+		    <input type="hidden" class="form-control" name="p_id" value="<?php echo "$id"; ?>" >
 		  </div>
 		  <div class="form-group">
 		  	<label for="pwd">Posisi: </label>
-		    <select class="form-control" id="p_posisi">
+		    <select class="form-control" name="p_posisi">
                <option>Pemain</option>
                <option>Kiper</option>
              </select>
 		  </div>
 		  <div class="form-group">
-		  	<button type="submit" class="btn btn-default">Submit</button>
+		  	<a>
+	        	<input type="submit" value="Submit" name="submit">
+	        </a>
 		  </div>
 		</form>
     </div>
@@ -396,7 +402,7 @@
       <h2>Tambah Official</h2>
     </div>
     <div class="modal-body">
-      	<form action="/action_page.php">
+      	<form action="/action_page.php" >
 		  <div class="form-group">
 		    <label for="email">Nama:</label>
 		    <input type="text" class="form-control" id="o_nama">
@@ -468,4 +474,19 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }}
+</script>
+<script type="text/javascript">
+	function validateForm() {
+    var x = document.forms["myForm"]["p_nrp"].value;
+    var sx = x.length;
+    var y = document.forms["myForm"]["p_nopunggung"].value;
+    if (sx!=14) {
+        alert("NRP harus 14 digit!");
+        return false;
+    }
+    if (y<0 || y>99) {
+        alert("Rentang nomor adalah 1-99!");
+        return false;
+    }
+}
 </script>

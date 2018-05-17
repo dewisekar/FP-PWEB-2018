@@ -2,7 +2,7 @@
   include 'dbconnect.php';
   
   session_start();
-  if (isset($_SESSION['u_admin'])) {
+  if (isset($_SESSION['a_username'])) {
   ?>
    <script type="text/javascript">
     window.location.href="userhome.php";
