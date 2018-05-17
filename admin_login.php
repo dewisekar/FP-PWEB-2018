@@ -2,7 +2,7 @@
   include 'dbconnect.php';
   
   session_start();
-  if (isset($_SESSION['u_username'])) {
+  if (isset($_SESSION['u_admin'])) {
   ?>
    <script type="text/javascript">
     window.location.href="userhome.php";
@@ -14,19 +14,19 @@
     <!--<![endif]-->
     <head>
         <!-- Title -->
-        <title>Login Page</title>
+        <title>Admin Login Page</title>
         <link rel="stylesheet"  href="css/login.css">
 		<link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
         <!-- Meta -->
     </head>
-    <body>
-	<div class="container">
+    <body style="background: #282b33;">
+	<div class="container" >
 	    <div class="row justify-content-center">
 	        <div class="col-md-8">
 	            <div class="card card-default">	
 	                <div class="loginBox">
-	                    <h2> Log In Here </h2>
-	                    <form  method="POST" action="action_userlogin.php">
+	                    <h2> Are you admin? </h2>
+	                    <form  method="POST" action="action_adminlogin.php">
 	                        <div class="form-group row">
 	                        	<a href="/"> <img style="width:30%" src="images/logoifc2.png" class="user"></img></a>
 	
@@ -44,7 +44,7 @@
 	                        <div class="form-group row mb-0">	                        	 
 	                            <div class="col-md-8 offset-md-4">
 	                            	<a>
-	                            		<input type="submit" value="Sign In" name="submit">
+	                            		<input type="submit" value="Sign In" name="submit" style="background-color: #903b50;">
 	                                </a>
 	                            </div>
 	                        </div>

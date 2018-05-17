@@ -1,3 +1,15 @@
+<?php
+  include 'dbconnect.php';
+  
+  session_start();
+  if (!isset($_SESSION['a_username'])) {
+  ?>
+   <script type="text/javascript">
+    alert("Sorry, you are not an admin.");
+    window.location.href="admin_login.php";
+   </script> <?php
+ }
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -53,7 +65,7 @@
   	  	</ul>   
   	</nav>
   	<div class="col-md-12 text-center animate fadeInUp">
-  		<img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top: 1%; padding-bottom: 0;" >
+  		<a href="index.php"><img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top: 1%; padding-bottom: 0;" ></a>
   		<h2 style="margin-top: 0%;"> Welcome Admin! </h2>
   		<p style="margin-bottom: 2%;"> Selama IFC 2018, berikut adalah hal-hal yang perlu diperhatikan: </p>
   	</div>

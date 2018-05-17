@@ -1,3 +1,15 @@
+<?php
+  include 'dbconnect.php';
+  
+  session_start();
+  if (!isset($_SESSION['a_username'])) {
+  ?>
+   <script type="text/javascript">
+    alert("Login First!");
+    window.location.href="login.php";
+   </script> <?php
+ }
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -43,7 +55,7 @@
   	  	  <li><a href="berkasoffline.php">Berkas Offline</a></li>
   	  	  <li><a href="index.php">IFC 2018 Home</a></li>
   	  	  <li><a href="berkasonline.php">Berkas Online</a></li>
-  	  	  <li><a href="login.php">Logout</a></li>      
+  	  	  <li><a href="action_userlogout.php">Logout</a></li>      
   	  	</ul>   
   	</nav>
   	<div class="col-md-12 text-center">

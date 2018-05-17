@@ -41,11 +41,15 @@
   </div>
   <nav id="nav">
     <ul>
-      <li><a href="index.php">Home</a></li>
+       <li><a href="index.php">Home</a></li>
       <li><a href="left-sidebar.html">Galeri</a></li>
-      <li><a href="right-sidebar.html">Klasemen</a></li>
+      <li><span>Group, Jadwal, dan Klasemen</span>
+        <ul>
+        <li><a href="jadwal.php">Group dan Jadwal</a></li>
+        <li><a href="klasemen.php">Klasemen</a></li>
+        </ul>
       <li><a href="syarat.php">Pendaftaran</a></li>
-      <li><a href="login.php">Login</a></li>
+      <li><a href="login.php">Login</a></li>  
     </ul>
   </nav>
 </div>
