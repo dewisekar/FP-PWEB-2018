@@ -391,9 +391,6 @@
   </div>
 </div>
 </body>
-<script type="text/javascript">
-
-</script>
 </html>
 <script>
 $(document).ready(function(){

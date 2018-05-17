@@ -402,25 +402,30 @@
       <h2>Tambah Official</h2>
     </div>
     <div class="modal-body">
-      	<form action="/action_page.php" >
+      	<form action="action_tambahofficial.php" method="POST">
 		  <div class="form-group">
 		    <label for="email">Nama:</label>
-		    <input type="text" class="form-control" id="o_nama">
+		    <input type="text" class="form-control" name="o_nama">
 		  </div>
 		  <div class="form-group">
 		    <label for="pwd">No. Identitas</label>
-		    <input type="text" class="form-control" id="o_noidentitas">
+		    <input type="text" class="form-control" name="o_noidentitas">
 		  </div>
 		  <div class="form-group">
 		    <label for="pwd">Posisi: </label>
-		    <select class="form-control" id="o_posisi">
+		    <select class="form-control" name="o_posisi">
                <option>Coach</option>
                <option>Ass. Coach</option>
                <option>Manager</option>
              </select>
 		  </div>
 		  <div class="form-group">
-		  	<button type="submit" class="btn btn-default">Submit</button>
+		    <input type="hidden" class="form-control" name="o_id" value="<?php echo "$id"; ?>" >
+		  </div>
+		  <div class="form-group">
+		  	<a>
+		       <input type="submit" value="Submit" name="submit">
+	        </a>
 		  </div>
 		</form>
     </div>
