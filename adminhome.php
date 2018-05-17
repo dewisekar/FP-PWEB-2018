@@ -61,7 +61,7 @@
                 </ul>
             
           </li>
-  	  	  <li><a href="login.php">Logout</a></li>    
+  	  	  <li><a href="action_adminlogout.php">Logout</a></li>    
   	  	</ul>   
   	</nav>
   	<div class="col-md-12 text-center animate fadeInUp">

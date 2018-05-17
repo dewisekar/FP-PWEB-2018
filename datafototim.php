@@ -1,3 +1,15 @@
+<?php
+  include 'dbconnect.php';
+  
+  session_start();
+  if (!isset($_SESSION['a_username'])) {
+  ?>
+   <script type="text/javascript">
+    alert("Sorry, you are not an admin.");
+    window.location.href="admin_login.php";
+   </script> <?php
+ }
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -48,7 +60,7 @@
                   <li><a href="#">Update Klasemen</a></li>
                 </ul>            
           </li>
-  	  	  <li><a href="login.php">Logout</a></li>      
+  	  	  <li><a href="action_adminlogout.php">Logout</a></li>      
   	  	</ul>   
   	</nav>
   	<div class="col-md-12 text-center">
