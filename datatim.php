@@ -74,6 +74,7 @@
   	  	  <li><a href="datafototim.php">Data Berkas Foto</a></li>
           <li> <span>Jadwal dan Klasemen</span>
                 <ul>
+                	<li><a href="updategroup.php">Edit Group</a></li>
                   <li><a href="#">Jadwal</a></li>
                   <li><a href="#">Update Klasemen</a></li>
                 </ul>            

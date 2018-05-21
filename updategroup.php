@@ -1,6 +1,33 @@
 <?php
-  @include 'klasementabel.php';
-?>
+   include 'dbconnect.php';
+   
+  session_start();
+  if (!isset($_SESSION['a_username'])) {
+    ?>
+     <script type="text/javascript">
+      alert("Sorry, you are not an admin.");
+      window.location.href="admin_login.php";
+     </script> <?php
+  }
+  $qry="SELECT * FROM users where u_papi= '0' and u_group is null";
+  $result = mysqli_query($con,$qry);
+  $groupcow = mysqli_fetch_all($result,MYSQLI_ASSOC);
+  $qry="SELECT * FROM users where u_papi= '1' and u_group is null";
+  $result = mysqli_query($con,$qry);
+  $groupcew = mysqli_fetch_all($result,MYSQLI_ASSOC);
+  mysqli_close($con);
+  include 'klasementabel.php';
+  $act = isset($_GET['act']) ? $_GET['act'] : "";
+  if ($act=="del"){
+    $uid = $_GET['uid'];
+    include("dbconnect.php");
+    mysqli_query($con, "update users set u_group=NULL, u_pool=NULL where u_id=$uid");
+    mysqli_close($con);
+    header("location:updatejadwal.php");
+    die();
+  }
+
+ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -39,26 +66,159 @@
 <![endif]-->
 </head>
 <body class="homepage">
-<div id="syarat" class="row">
-<nav id="nav">
-	<ul>
-      <li><a href="index.php">Home</a></li>
-      <li><a href="left-sidebar.html">Galeri</a></li>
-      <li><span>Group, Jadwal, dan Klasemen</span>
-        <ul>
-        <li><a href="jadwal.php">Group dan Jadwal</a></li>
-        <li><a href="klasemen.php">Klasemen</a></li>
-        </ul>
-      <li><a href="syarat.php">Pendaftaran</a></li>
-      <li><span>Login</span>
-        <ul>
-          <li><a href="login.php">User Login</a></li>
-          <li><a href="admin_login.php">Admin Login</a></li>
-        </ul>
-      </li>        
-    </ul>   
-  </nav>
-	
+<div id="syarat" class="row" style="background: #282b33; margin-bottom: 0; padding-bottom: 0px;">
+  <nav id="nav">
+    <ul>
+          <li><a href="adminhome.php">Dashboard</a></li>
+          <li><a href="datatim.php">Data Tim</a></li>
+          <li><a href="datafototim.php">Data Berkas Foto</a></li>
+          <li> <span>Jadwal dan Klasemen</span>
+                <ul>
+                  <li><a href="updategroup.php">Edit Group</a></li>
+                  <li><a href="#">Jadwal</a></li>
+                  <li><a href="#">Update Klasemen</a></li>
+                </ul>            
+          </li>
+          <li><a href="action_adminlogout.php">Logout</a></li>      
+        </ul>   
+    </nav>
+  <div class="col-md-12 text-center animate fadeInDown">
+      <a href="index.php"><img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top: 1%; padding-bottom: 0;" ></a>
+      <h2 style="margin-top: 0; margin-bottom: 0; padding-bottom: 0;">Klasemen ITS Futsal Championship 2018</h2>
+  </div>
+  <h2 style="text-align: center;">Tambah Tim ke Group </h2>
+  <div class="col-md-2"></div>
+  <div class="col-md-8" style="height: auto; border: none;">
+    <style>  
+    label{
+      color: white;
+    }  
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        padding: 0; margin: 0;
+    }
+    
+    /* Style the buttons inside the tab */
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+    
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        background-color: #ddd;
+    }
+    
+    /* Create an active/current tablink class */
+    .tab button.active {
+        background-color: #ccc;
+    }
+    
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
+    </style>  
+    
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'London')">Putra</button>
+      <button class="tablinks" onclick="openCity(event, 'Paris')">Putri</button>
+    </div>
+    
+    <div id="London" class="tabcontent" style="display: block;">
+      <form action="action_tambahkegrup.php" name="myForm" onsubmit="return validateForm()" method="POST" style="margin-top: 5% ;">
+        <div class="form-group">
+          <label for="email">Nama Tim:</label>
+          <select id="country" class="form-control"  name="tim">
+          <?php for ($i=0;$i<sizeof($groupcow);$i++) {
+            echo '<option value="'.$groupcow[$i][u_id].'">'.$groupcow[$i][u_nama].'</option>';
+          }
+          ?>
+          </select>
+        </div>
+        <div class="form-group">
+        <label for="email">Group:</label>
+          <select id="country" class="form-control" name="group">
+              <option>A</option>
+              <option>B</option>
+              <option>C</option>
+              <option>D</option>
+              <option>E</option>
+              <option>F</option>
+              <option>G</option>
+              <option>H</option>
+          </select>
+        </div>
+        <div class="form-group" >
+          <label for="email">Pool: </label>
+          <select class="form-control" name="tim_pool">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <a>
+            <input type="submit" value="Submit" name="submit">
+          </a>
+        </div>
+    </form>
+    </div>
+    
+    <div id="Paris" class="tabcontent">
+      <form action="action_tambahkegrup.php" name="myForm" onsubmit="return validateForm()" method="POST" style="margin-top: 5% ;">
+        <div class="form-group">
+          <label for="email">Nama Tim:</label>
+          <select id="country" class="form-control"  name="tim">
+          <?php for ($i=0;$i<sizeof($groupcew);$i++) {
+            echo '<option value="'.$groupcew[$i][u_id].'">'.$groupcew[$i][u_nama].'</option>';
+          }
+          ?>
+          </select>
+        </div>
+        <div class="form-group">
+        <label for="email">Group:</label>
+          <select id="country" class="form-control" name="group">
+              <option>W</option>
+              <option>X</option>
+              <option>Y</option>
+              <option>Z</option>
+          </select>
+        </div>
+        <div class="form-group" >
+          <label for="email">Pool: </label>
+          <select class="form-control" name="tim_pool">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <a>
+            <input type="submit" value="Submit" name="submit">
+          </a>
+        </div>
+    </form>
+    </div>
+    
+
+
+	</div>
+  <div class="col-md-2"></div>
   <div class="row" style="width: 100%; padding: 0; margin: 0; margin-bottom: 0;"> 
     <style>
   		.col-md-12{
@@ -73,12 +233,9 @@
       }
   	</style>
 
-	<div class="col-md-12 text-center animate fadeInDown">
-      <img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top: 0; padding-bottom: 0;" >
-      <h2 style="margin-top: 0; margin-bottom: 0; padding-bottom: 0;">Klasemen ITS Futsal Championship 2018</h2>
-  </div>
+	
   
-    <div class="col-md-12 text-center" style="margin-top: 0; padding-right: 5;">
+   <div class="col-md-12 text-center" style="margin-top: 0; padding-right: 5;">
     <h1 style="font-size: 40px; font-weight: bold;"> Tim Putra </h1>
     <style type="text/css">
       h1{
@@ -174,14 +331,14 @@
             <tr>
              
               <th><h1>Group A</h1></th>
-               
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
              <?php for ($i=0;$i<sizeof($groupA);$i++) { ?>
             <tr>
               <td><?php echo $groupA[$i]['u_nama']?></td>
-          
+              <td><a href="?act=del&uid=<?php echo $groupA[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?> 
           </tbody>
@@ -193,14 +350,14 @@
             <tr>
              
               <th><h1>Group B</h1></th>
-               
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupB);$i++) { ?>
             <tr>
               <td><?php echo $groupB[$i]['u_nama']?></td>
-   
+              <td><a href="?act=del&uid=<?php echo $groupB[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>
           </tbody>
@@ -212,13 +369,14 @@
             <tr>
              
               <th><h1>Group C</h1></th>
-               
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
            <?php for ($i=0;$i<sizeof($groupC);$i++) { ?>
             <tr>
               <td><?php echo $groupC[$i]['u_nama']?></td>
+              <td><a href="?act=del&uid=<?php echo $groupC[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>   
           </tbody>
@@ -230,14 +388,14 @@
             <tr>
              
               <th><h1> Group D </h1></th>
-               
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupD);$i++) { ?>
             <tr>
               <td><?php echo $groupD[$i]['u_nama']?></td>
-   
+              <td><a href="?act=del&uid=<?php echo $groupD[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -249,14 +407,14 @@
             <tr>
              
               <th><h1> Group E</h1></th>
-               
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupE);$i++) { ?>
             <tr>
               <td><?php echo $groupE[$i]['u_nama']?></td>
-          >
+              <td><a href="?act=del&uid=<?php echo $groupE[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -268,14 +426,14 @@
             <tr>
              
               <th><h1> Group F</h1></th>
-               
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupF);$i++) { ?>
             <tr>
               <td><?php echo $groupF[$i]['u_nama']?></td>
-       
+              <td><a href="?act=del&uid=<?php echo $groupF[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>
           </tbody>
@@ -287,14 +445,14 @@
             <tr>
              
               <th><h1> Group G</h1></th>
-               
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupG);$i++) { ?>
             <tr>
               <td><?php echo $groupG[$i]['u_nama']?></td>
- 
+              <td><a href="?act=del&uid=<?php echo $groupG[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -306,14 +464,14 @@
             <tr>
              
               <th><h1> Group H</h1></th>
-               
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupH);$i++) { ?>
             <tr>
               <td><?php echo $groupH[$i]['u_nama']?></td>
-      
+              <td><a href="?act=del&uid=<?php echo $groupH[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -416,13 +574,14 @@
             <tr>
              
               <th><h1> Group W</h1></th>
-               
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
            <?php for ($i=0;$i<sizeof($groupW);$i++) { ?>
             <tr>
               <td><?php echo $groupW[$i]['u_nama']?></td>
+              <td><a href="?act=del&uid=<?php echo $groupW[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?> 
           </tbody>
@@ -434,13 +593,14 @@
             <tr>
              
               <th><h1> Group X</h1></th>
-               
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
            <?php for ($i=0;$i<sizeof($groupX);$i++) { ?>
             <tr>
               <td><?php echo $groupX[$i]['u_nama']?></td>
+              <td><a href="?act=del&uid=<?php echo $groupX[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -452,13 +612,14 @@
             <tr>
              
               <th><h1> Group Y</h1></th>
-               
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupY);$i++) { ?>
             <tr>
               <td><?php echo $groupY[$i]['u_nama']?></td>
+              <td><a href="?act=del&uid=<?php echo $groupY[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -470,13 +631,14 @@
             <tr>
              
               <th><h1>Group Z</h1></th>
-               
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupZ);$i++) { ?>
             <tr>
               <td><?php echo $groupZ[$i]['u_nama']?></td>
+              <td><a href="?act=del&uid=<?php echo $groupZ[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -517,3 +679,55 @@
 
 </script>
 </html>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#country').on('change',function(){
+        var countryID = $(this).val();
+        if(countryID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+                data:'country_id='+countryID,
+                success:function(html){
+                    $('#state').html(html);
+                    $('#city').html('<option value="">Select state first</option>'); 
+                }
+            }); 
+        }else{
+            $('#state').html('<option value="">Select country first</option>');
+            $('#city').html('<option value="">Select state first</option>'); 
+        }
+    });
+    
+    $('#state').on('change',function(){
+        var stateID = $(this).val();
+        if(stateID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+                data:'state_id='+stateID,
+                success:function(html){
+                    $('#city').html(html);
+                }
+            }); 
+        }else{
+            $('#city').html('<option value="">Select state first</option>'); 
+        }
+    });
+});
+</script>
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
