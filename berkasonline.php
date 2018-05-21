@@ -16,6 +16,10 @@
 	$qry1="SELECT * FROM official where o_timid = $id";
 	$result = mysqli_query($con,$qry1);
 	$row1 = mysqli_fetch_all($result,MYSQLI_ASSOC); 
+	$qry2="SELECT * FROM filefoto where f_timid = $id";
+	$result = mysqli_query($con,$qry2);
+	$row3 = mysqli_fetch_all($result,MYSQLI_ASSOC);
+	$cek = mysqli_num_rows($result);
 	$no = 0;
 	$no1 = 0; 
 	mysqli_close($con); 
@@ -32,6 +36,14 @@
 		$uid = $_GET['uid'];
 		include("dbconnect.php");
 		mysqli_query($con, "DELETE FROM official where o_id=$uid");
+	    mysqli_close($con);
+	    header("location:berkasonline.php");
+	    die();
+	}
+	else if ($act=="del3"){
+		$uid = $_GET['uid'];
+		include("dbconnect.php");
+		mysqli_query($con, "DELETE FROM filefoto where f_id=$uid");
 	    mysqli_close($con);
 	    header("location:berkasonline.php");
 	    die();
@@ -295,7 +307,6 @@
   				<a id="no3" class="icon icon-sort-down" style="text-align: center; color: white;"></a><p style="float: right;">Upload Berkas</p>  				
   		</div>
   		<div id="tabel3" style="border: 1px solid white;">
-  			GATAU DEH SUSAH NEH
   			<style type="text/css">
   			.file-upload{display:block;text-align:center;font-family: Helvetica, Arial, sans-serif;font-size: 12px;}
 			.file-upload .file-select{display:block;border: 2px solid #dce4ec;color: #34495e;cursor:pointer;height:40px;line-height:40px;			text-align:left;background:#FFFFFF;overflow:hidden;position:relative;}
@@ -311,24 +322,69 @@
 			.file-upload .file-select.file-select-disabled:hover .file-select-button{background:#dce4ec;color:#666666;padding:0 10px;			display:inline-block;height:40px;line-height:40px;}
 			.file-upload .file-select.file-select-disabled:hover .file-select-name{line-height:40px;display:inline-block;padding:0 10px;}
   			</style>
-			<div class="file-upload">
 			
-			<form method="post" action="uploadzip.php" enctype="multipart/form-data">
+			<?php if ($cek<1) { ?>
+			<div class="file-upload">
+				<p style="font-size: 15px;"> Ukuran maksimum 1mb. Apabila lebih, bisa mencantumkan file .txt berisikan link berkas di sebuah halaman drive yang sudah di public. Tidak bisa mengirim file kosong! </p>
+				<form method="post" action="uploadzip.php" enctype="multipart/form-data" style="margin-top: 1%;">
 			  <div class="file-select">
 			    <div class="file-select-button" id="fileName">Choose File</div>
 			    <div class="file-select-name"  id="noFile">No file chosen...</div> 
 			    <input type="file" name="fileToUpload" id="chooseFile">
 			    <input type="hidden" class="form-control" name="p_id" value="<?php echo "$id"; ?>" >			   	 
 			  </div>			  
-			</div>
-			<div class="form-group" style="margin-bottom: 0; padding-bottom: 0;">
+			<div class="form-group" style="margin-bottom: 1%; padding-bottom: 1%;">
 				<a>
 	    		 	<input type="submit" value="Submit" name="submit">
 	    		</a>
 			</div>
-		</form>
-  		</div>
+			</form> </div>  <?php
+			} else { ?> 
+			<div class="file-upload">
+				<p style="margin-top: 1%;" > Berkasmu adalah: </p>
+				<style type="text/css">
+				.nav{
+				    border-width:1px 0;
+				    margin: 0 1% 0 1%;
+				    list-style:none;
+				    padding:0;
+				    text-align:center;
+				}
+				.nav li{
+				    display:inline;
+				    margin: 1px;
+				}
+
+				
+				.nav a{
+				    display:inline-block;
+				    padding:10px;
+				    background-color: transparent;
+				    border: 1px solid white;
+				    -webkit-transition: background 2s; /* Safari */
+    				transition: background 2s;
+    				width: 20%;
+    				margin-left: 1%;
+				}
+	
+				.nav a:hover{
+					color: white;
+					background-color: silver;
+				}  
+
+
+  			</style>
+  			<ul class="nav">
+  			
+  				 <?php for ($i=0;$i<sizeof($row3);$i++) {
+          		  echo '<li><p style="font-size:15px;">'.$row3[$i]['f_nama'].'<a href="downloadbalik.php?id='.$row3[$i]['f_id'].'" class="btn" >Download</a><a href="?act=del3&uid='.$row3[$i]['f_id'].'" class="btn">Delete</a></p></li>';
+          		}
+          		?>
+  			</ul>
+			</div> <?php } ?>
+  		
   	</div>
+  </div>
   	<div class="col-md-1"></div>
 
 </div>
