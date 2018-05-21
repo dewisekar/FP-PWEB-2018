@@ -103,9 +103,9 @@
 </div>
 
 
-<section class="cd-horizontal-timeline">
+<section class="cd-horizontal-timeline" style="width: 100%;">
   <h2> Timeline </h2>
-  <div class="timeline">
+  <div class="timeline" style="width: 100%;">
     <div class="events-wrapper">
       <div class="events">
         <ol>

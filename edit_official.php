@@ -2,7 +2,7 @@
  	 include 'dbconnect.php';
  	 
  	 session_start();
- 	 if (!isset($_SESSION['a_username'])) {
+ 	 if (!isset($_SESSION['u_username'])) {
  	 ?>
  	  <script type="text/javascript">
  	   alert("Sorry, you are not an admin.");
@@ -10,7 +10,7 @@
  	  </script> <?php
  	}
 
- 	$id =  $_SESSION['a_username'];	
+ 	$id =  $_SESSION['u_username'];	
  	$uid = $_GET['uid'];
  	$sql = mysqli_query($con, "select * from official where o_id = '$uid'") or die (mysqli_error());
   $data = mysqli_fetch_assoc($sql);

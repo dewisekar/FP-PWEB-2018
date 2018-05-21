@@ -172,7 +172,7 @@
 			}		
 			
 			th { 
-			  background: rgba(23,51,89,0.6);; 
+			  background: rgba(23,51,89,0.6);
 			  font-weight: bold; 
 			}
 			

@@ -9,10 +9,15 @@
       window.location.href="admin_login.php";
      </script> <?php
   }
-  $qry="SELECT * FROM papi";
+  $qry="SELECT * FROM users where u_papi= '0' and u_group is null";
   $result = mysqli_query($con,$qry);
-  $row = mysqli_fetch_all($result,MYSQLI_ASSOC);
+  $groupcow = mysqli_fetch_all($result,MYSQLI_ASSOC);
+  $qry="SELECT * FROM users where u_papi= '1' and u_group is null";
+  $result = mysqli_query($con,$qry);
+  $groupcew = mysqli_fetch_all($result,MYSQLI_ASSOC);
   mysqli_close($con);
+  include 'klasementabel.php';
+
  ?>
 <!DOCTYPE HTML>
 <html>
@@ -72,51 +77,140 @@
     </ul>   
   </nav>
   <div class="col-md-12 text-center animate fadeInDown">
-      <img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top: 0; padding-bottom: 0;" >
+      <img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top:3%; padding-bottom: 0;" >
       <h2 style="margin-top: 0; margin-bottom: 0; padding-bottom: 0;">Klasemen ITS Futsal Championship 2018</h2>
   </div>
   <h2 style="text-align: center;">Tambah Tim ke Group </h2>
   <div class="col-md-2"></div>
-  <div class="col-md-8">
-
-  <form action="action_datatim.php" name="myForm" onsubmit="return validateForm()" method="POST" style="margin-top: 5%;">
-	  <div class="form-group">
-	    <label for="email">Putra/Putri:</label>
-	    <select id="country" class="form-control">
-      <?php for ($i=0;$i<sizeof($row);$i++) {
-        echo '<option value="'.$row[$i][papi_id].'">'.$row[$i][papi_nama].'</option>';
-      }
-      ?>
-      </select>
-
-	  </div>
-	 <div class="form-group">
-      <label for="pwd">Tim: </label>
-      <select class="form-control" name="tim_pool">
-          <option value="">Select putra/putri first</option>
-        </select>
+  <div class="col-md-8" style="height: auto; border: none;">
+    <style>  
+    label{
+      color: white;
+    }  
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        padding: 0; margin: 0;
+    }
+    
+    /* Style the buttons inside the tab */
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+    
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        background-color: #ddd;
+    }
+    
+    /* Create an active/current tablink class */
+    .tab button.active {
+        background-color: #ccc;
+    }
+    
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
+    </style>  
+    
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'London')">Putra</button>
+      <button class="tablinks" onclick="openCity(event, 'Paris')">Putri</button>
     </div>
-     <div class="form-group">
-      <label for="pwd">Group: </label>
-      <select class="form-control" name="tim_pool">
-           <option value="">Select putra/putri first</option>
-        </select>
+    
+    <div id="London" class="tabcontent" style="display: block;">
+      <form action="action_tambahkegrup.php" name="myForm" onsubmit="return validateForm()" method="POST" style="margin-top: 5% ;">
+        <div class="form-group">
+          <label for="email">Nama Tim:</label>
+          <select id="country" class="form-control"  name="tim">
+          <?php for ($i=0;$i<sizeof($groupcow);$i++) {
+            echo '<option value="'.$groupcow[$i][u_id].'">'.$groupcow[$i][u_nama].'</option>';
+          }
+          ?>
+          </select>
+        </div>
+        <div class="form-group">
+        <label for="email">Group:</label>
+          <select id="country" class="form-control" name="group">
+              <option>A</option>
+              <option>B</option>
+              <option>C</option>
+              <option>D</option>
+              <option>E</option>
+              <option>F</option>
+              <option>G</option>
+              <option>H</option>
+          </select>
+        </div>
+        <div class="form-group" >
+          <label for="email">Pool: </label>
+          <select class="form-control" name="tim_pool">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <a>
+            <input type="submit" value="Submit" name="submit">
+          </a>
+        </div>
+    </form>
     </div>
-	  <div class="form-group" >
-	  	<label for="pwd">Pool: </label>
-	    <select class="form-control" name="tim_pool">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-        </select>
-	  </div>
-	  <div class="form-group">
-	  	<a>
-	    	<input type="submit" value="Sign In" name="submit">
-	    </a>
-	  </div>
-	</form>
+    
+    <div id="Paris" class="tabcontent">
+      <form action="action_tambahkegrup.php" name="myForm" onsubmit="return validateForm()" method="POST" style="margin-top: 5% ;">
+        <div class="form-group">
+          <label for="email">Nama Tim:</label>
+          <select id="country" class="form-control"  name="tim">
+          <?php for ($i=0;$i<sizeof($groupcew);$i++) {
+            echo '<option value="'.$groupcew[$i][u_id].'">'.$groupcew[$i][u_nama].'</option>';
+          }
+          ?>
+          </select>
+        </div>
+        <div class="form-group">
+        <label for="email">Group:</label>
+          <select id="country" class="form-control" name="group">
+              <option>W</option>
+              <option>X</option>
+              <option>Y</option>
+              <option>Z</option>
+          </select>
+        </div>
+        <div class="form-group" >
+          <label for="email">Pool: </label>
+          <select class="form-control" name="tim_pool">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <a>
+            <input type="submit" value="Submit" name="submit">
+          </a>
+        </div>
+    </form>
+    </div>
+    
+
+
 	</div>
   <div class="col-md-2"></div>
   <div class="row" style="width: 100%; padding: 0; margin: 0; margin-bottom: 0;"> 
@@ -234,9 +328,11 @@
             </tr>
           </thead>
           <tbody>
+             <?php for ($i=0;$i<sizeof($groupA);$i++) { ?>
             <tr>
-                <td> Hai</td>
-              </tr>   
+              <td><?php echo $groupA[$i]['u_nama']?></td>
+            </tr>
+            <?php } ?> 
           </tbody>
           </table>
   </div>
@@ -249,9 +345,11 @@
             </tr>
           </thead>
           <tbody>
+            <?php for ($i=0;$i<sizeof($groupB);$i++) { ?>
             <tr>
-                <td> Hai</td>
-              </tr>   
+              <td><?php echo $groupB[$i]['u_nama']?></td>
+            </tr>
+            <?php } ?>
           </tbody>
           </table>
   </div>
@@ -264,9 +362,11 @@
             </tr>
           </thead>
           <tbody>
+           <?php for ($i=0;$i<sizeof($groupC);$i++) { ?>
             <tr>
-                <td> Hai</td>
-              </tr>   
+              <td><?php echo $groupC[$i]['u_nama']?></td>
+            </tr>
+            <?php } ?>   
           </tbody>
           </table>
   </div>
@@ -279,9 +379,11 @@
             </tr>
           </thead>
           <tbody>
+            <?php for ($i=0;$i<sizeof($groupD);$i++) { ?>
             <tr>
-                <td> Hai</td>
-              </tr>   
+              <td><?php echo $groupD[$i]['u_nama']?></td>
+            </tr>
+            <?php } ?>  
           </tbody>
           </table>
   </div>
@@ -294,9 +396,11 @@
             </tr>
           </thead>
           <tbody>
+            <?php for ($i=0;$i<sizeof($groupE);$i++) { ?>
             <tr>
-                <td> Hai</td>
-              </tr>   
+              <td><?php echo $groupE[$i]['u_nama']?></td>
+            </tr>
+            <?php } ?>  
           </tbody>
           </table>
   </div>
@@ -309,9 +413,11 @@
             </tr>
           </thead>
           <tbody>
+            <?php for ($i=0;$i<sizeof($groupF);$i++) { ?>
             <tr>
-                <td> Hai</td>
-              </tr>   
+              <td><?php echo $groupF[$i]['u_nama']?></td>
+            </tr>
+            <?php } ?>
           </tbody>
           </table>
   </div>
@@ -324,9 +430,11 @@
             </tr>
           </thead>
           <tbody>
+            <?php for ($i=0;$i<sizeof($groupG);$i++) { ?>
             <tr>
-                <td> Hai</td>
-              </tr>   
+              <td><?php echo $groupG[$i]['u_nama']?></td>
+            </tr>
+            <?php } ?>  
           </tbody>
           </table>
   </div>
@@ -339,9 +447,11 @@
             </tr>
           </thead>
           <tbody>
+            <?php for ($i=0;$i<sizeof($groupH);$i++) { ?>
             <tr>
-                <td> Hai</td>
-              </tr>   
+              <td><?php echo $groupH[$i]['u_nama']?></td>
+            </tr>
+            <?php } ?>  
           </tbody>
           </table>
   </div>
@@ -445,9 +555,11 @@
             </tr>
           </thead>
           <tbody>
+           <?php for ($i=0;$i<sizeof($groupW);$i++) { ?>
             <tr>
-                <td> Hai</td>
-              </tr>   
+              <td><?php echo $groupW[$i]['u_nama']?></td>
+            </tr>
+            <?php } ?> 
           </tbody>
           </table>
   </div>
@@ -460,9 +572,11 @@
             </tr>
           </thead>
           <tbody>
+           <?php for ($i=0;$i<sizeof($groupX);$i++) { ?>
             <tr>
-                <td> Hai</td>
-              </tr>   
+              <td><?php echo $groupX[$i]['u_nama']?></td>
+            </tr>
+            <?php } ?>  
           </tbody>
           </table>
   </div>
@@ -475,9 +589,11 @@
             </tr>
           </thead>
           <tbody>
+            <?php for ($i=0;$i<sizeof($groupY);$i++) { ?>
             <tr>
-                <td> Hai</td>
-              </tr>   
+              <td><?php echo $groupY[$i]['u_nama']?></td>
+            </tr>
+            <?php } ?>  
           </tbody>
           </table>
   </div>
@@ -490,9 +606,11 @@
             </tr>
           </thead>
           <tbody>
+            <?php for ($i=0;$i<sizeof($groupZ);$i++) { ?>
             <tr>
-                <td> Hai</td>
-              </tr>   
+              <td><?php echo $groupZ[$i]['u_nama']?></td>
+            </tr>
+            <?php } ?>  
           </tbody>
           </table>
   </div>
@@ -567,4 +685,19 @@ $(document).ready(function(){
         }
     });
 });
+</script>
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
 </script>

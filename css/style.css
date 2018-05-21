@@ -1744,3 +1744,18 @@
   margin-bottom: auto;
   font-size: 25px;
 }
+
+.form-group a input[type="submit"]{
+	background-color: rgba(23,51,89,0.6);
+	color: white;
+	border: none;
+	width: 40%;
+	-webkit-transition: background-color 2s; /* Safari */
+    transition: background-color 2s;
+
+}
+.form-group a input[type="submit"]:hover{
+	background-color: silver;
+	color: white;
+	border: 1px solid white;
+}

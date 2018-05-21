@@ -1,29 +1,52 @@
 <?php
-	$dbh = new PDO("mysql:host=localhost;dbname=vkvxweok_fp05111640000004", "root", "");
+	include 'dbconnect.php';
 	if(isset($_POST['submit'])){
-		/*$id= $_POST['p_id'];
-		$file_name = $_FILES['fileToUpload']['name'];
-		$array = explode(".", $file_name);
-		$name = $_FILES['fileToUpload']['type'];
-		$data = file_get_contents($_FILES['fileToUpload']['tmp_name']);
-		$stmt = $dbh->prepare("inser into filefoto values('',?,?,?,?");
-		$stmt->bindParam(1,$file_name);
-		$stmt->bindParam(2,$name);
-		$stmt->bindParam(3,$id);
-		$stmt->bindParam(4,$data);
-		$stmt->execute();*/
-		$masuk = "insert into filefoto (f_nama, f_mime, f_timid) values ('halo', 'hai', '1')";
-			$masuk2 = mysqli_query($dbh, $masuk) or die (mysqli_error());;
-		header("location: berkasonline.php");
-			die();		
-		/*if($masuk2){
-			header("location: berkasonline.php");
-		die();
-	
-		}
-		else{
-			echo "gak masuk sist";
-		}*/
-	}
+
+		$allowed = array("jpg" => "image/jpg", "JPG" => "image/JPG", "jpeg" => "image/jpeg", "png" => "image/png", "gif" => "image/gif", "zip" => "application/zip");
+		$name = $_FILES['fileToUpload']['name'];
+		$tmp_name = $_FILES['fileToUpload']['tmp_name'];
+		$f_timid = $_POST['p_id'];
+
+
+
+		$filesize = $_FILES['fileToUpload']['size'];
+		$filetype = $_FILES['fileToUpload']['type'];
+
+		$fp = fopen($tmp_name, 'r');
+		$content = fread($fp, filesize($tmp_name));
+		$content = addslashes($content);
+		fclose($fp);
 		
+		$ext = pathinfo($name, PATHINFO_EXTENSION);
+		if (!array_key_exists($ext, $allowed)) {
+			die("Format file tidak valid");
+			header("Location:admin_kamera.php?error=3");
+		}
+		else if ($name) 
+		{
+		
+			$maxsize = 5*1024*1024;
+			if ($filesize > $maxsize) {
+				die("Error: Ukuran file terlalu besar");
+				//header("Location:admin_kamera.php?error=4");
+			} 
+			else {	
+				$location = "file/$name";
+				move_uploaded_file($tmp_name, $location);
+				//SQL STAGE
+				$query = mysqli_query($con, "INSERT INTO filefoto(f_nama, f_type, f_size, f_content, f_timid) 
+					VALUES ('$name', '$filetype', '$filesize', '$content','$f_timid')");
+				echo "1";
+
+
+				//header("Location:admin_kamera.php?error=1");
+			}
+
+			
+		}
+		else {
+			die("Please select a file");
+			//header("Location:admin_kamera.php?error=2");
+		}		
+	}
 ?>
