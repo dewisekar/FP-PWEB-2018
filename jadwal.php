@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Klasemen</title>
+<title>Group dan Jadwal</title>
 <meta charset="utf-8">
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Fira+Sans:400,400italic' rel='stylesheet' type='text/css'>
@@ -38,7 +38,7 @@
 <body class="homepage">
 <div id="syarat" class="row">
 <nav id="nav">
-  <ul>
+	<ul>
       <li><a href="index.php">Home</a></li>
       <li><a href="left-sidebar.html">Galeri</a></li>
       <li><span>Group, Jadwal, dan Klasemen</span>
@@ -55,28 +55,29 @@
       </li>        
     </ul>   
   </nav>
-  
+	
   <div class="row" style="width: 100%; padding: 0; margin: 0; margin-bottom: 0;"> 
     <style>
-      .col-md-12{
-        padding: 3%;
+  		.col-md-12{
+  			padding: 3%;
         height: auto; 
-      }
+  		}
       .col-md-8{
         border: 1px solid white;
         padding: 3%;
         margin-top: 3%;
         height: 450px;
       }
-    </style>
+  	</style>
 
-  <div class="col-md-12 text-center animate fadeInDown">
+	<div class="col-md-12 text-center animate fadeInDown">
       <img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top: 0; padding-bottom: 0;" >
       <h2 style="margin-top: 0; margin-bottom: 0; padding-bottom: 0;">Klasemen ITS Futsal Championship 2018</h2>
   </div>
-  <div class="col-md-12 text-center" style="margin-top: 0; padding-right: 5;">
-    <h1 style="font-size: 40px; font-weight: bold;"> Tim Putri </h1>
-   <style type="text/css">
+  
+    <div class="col-md-12 text-center" style="margin-top: 0; padding-right: 5;">
+    <h1 style="font-size: 40px; font-weight: bold;"> Tim Putra </h1>
+    <style type="text/css">
       h1{
         color: white;
         margin-top: 1%;
@@ -92,6 +93,7 @@
           font-size: 0.8em;
           text-align: left;
           color: white;
+          text-align: center;
       }
       
       .container3 td {
@@ -109,6 +111,7 @@
           margin-bottom:  3%;
           display: table;
           padding-bottom: 2%;
+          margin-top: 10%;
 
       }
       
@@ -116,6 +119,7 @@
           padding-bottom: 2%;
           padding-top: 2%;
           padding-left:2%; 
+          text-align: center;
       }
       
       /* Background-color of the odd rows */
@@ -161,132 +165,127 @@
       .container3 th:nth-child(4) { display: none; }
       }
     </style>
-  <div class="col-md-6 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0; ">
-      <h1> Group W </h1>
+  <div class="col-md-3 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0; ">
       <table class="container3 text-center" >
           <thead>
             <tr>
-              <th><h1>No.</h1></th>
-              <th><h1>Nama Tim</h1></th>
-              <th><h1>GP</h1></th>
-              <th><h1>W</h1></th>
-              <th><h1>D</h1></th>                    
-              <th><h1>L</h1></th>
-              <th><h1>GF</h1></th>
-              <th><h1>GD</h1></th>
-              <th><h1>PTS</h1></th>
+             
+              <th><h1>Group A</h1></th>
             </tr>
           </thead>
           <tbody>
             <tr>
                 <td> Hai</td>
-                <td> Hai</td>                     
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-            </tr>       
+              </tr>   
           </tbody>
           </table>
   </div>
-  <div class="col-md-6 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
-      <h1> Group X </h1>
-      <table class="container3 text-center" >
+  <div class="col-md-3 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
+       <table class="container3 text-center" >
           <thead>
             <tr>
-              <th><h1>No.</h1></th>
-              <th><h1>Nama Tim</h1></th>
-              <th><h1>GP</h1></th>
-              <th><h1>W</h1></th>
-              <th><h1>D</h1></th>                    
-              <th><h1>L</h1></th>
-              <th><h1>GF</h1></th>
-              <th><h1>GD</h1></th>
-              <th><h1>PTS</h1></th>
+             
+              <th><h1>Group B</h1></th>
             </tr>
           </thead>
           <tbody>
             <tr>
                 <td> Hai</td>
-                <td> Hai</td>                     
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-            </tr>       
+              </tr>   
           </tbody>
           </table>
   </div>
-  <div class="col-md-6 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0;">
-      <h1> Group Y </h1>
+  <div class="col-md-3 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0;">
       <table class="container3 text-center" >
           <thead>
             <tr>
-              <th><h1>No.</h1></th>
-              <th><h1>Nama Tim</h1></th>
-              <th><h1>GP</h1></th>
-              <th><h1>W</h1></th>
-              <th><h1>D</h1></th>                    
-              <th><h1>L</h1></th>
-              <th><h1>GF</h1></th>
-              <th><h1>GD</h1></th>
-              <th><h1>PTS</h1></th>
+             
+              <th><h1>Group C</h1></th>
             </tr>
           </thead>
           <tbody>
             <tr>
                 <td> Hai</td>
-                <td> Hai</td>                     
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-            </tr>       
+              </tr>   
           </tbody>
           </table>
   </div>
-  <div class="col-md-6 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
-      <h1> Group Z </h1>
-      <table class="container3 text-center" >
+  <div class="col-md-3 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
+       <table class="container3 text-center" >
           <thead>
             <tr>
-              <th><h1>No.</h1></th>
-              <th><h1>Nama Tim</h1></th>
-              <th><h1>GP</h1></th>
-              <th><h1>W</h1></th>
-              <th><h1>D</h1></th>                    
-              <th><h1>L</h1></th>
-              <th><h1>GF</h1></th>
-              <th><h1>GD</h1></th>
-              <th><h1>PTS</h1></th>
+             
+              <th><h1> Group D </h1></th>
             </tr>
           </thead>
           <tbody>
             <tr>
                 <td> Hai</td>
-                <td> Hai</td>                     
+              </tr>   
+          </tbody>
+          </table>
+  </div>
+  <div class="col-md-3 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0;">
+       <table class="container3 text-center" >
+          <thead>
+            <tr>
+             
+              <th><h1> Group E</h1></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
                 <td> Hai</td>
+              </tr>   
+          </tbody>
+          </table>
+  </div>
+  <div class="col-md-3 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
+       <table class="container3 text-center" >
+          <thead>
+            <tr>
+             
+              <th><h1> Group F</h1></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
                 <td> Hai</td>
+              </tr>   
+          </tbody>
+          </table>
+  </div>
+  <div class="col-md-3 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0;">
+       <table class="container3 text-center" >
+          <thead>
+            <tr>
+             
+              <th><h1> Group G</h1></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
                 <td> Hai</td>
+              </tr>   
+          </tbody>
+          </table>
+  </div>
+  <div class="col-md-3 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
+       <table class="container3 text-center" >
+          <thead>
+            <tr>
+             
+              <th><h1> Group H</h1></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
                 <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-            </tr>       
+              </tr>   
           </tbody>
           </table>
   </div>
   </div>
-  
   <div class="col-md-12 text-center" style="margin-top: 0; padding-right: 5;">
     <h1 style="font-size: 40px; font-weight: bold;"> Tim Putri </h1>
     <style type="text/css">
@@ -303,8 +302,10 @@
       .container2 th h1 {
           font-weight: bold;
           font-size: 0.8em;
-          text-align: left;
+          text-align: center;
           color: white;
+          margin-top: 5%;
+
       }
       
       .container2 td {
@@ -321,7 +322,7 @@
           width: 100%;
           margin-bottom:  3%;
           display: table;
-          padding-bottom: 2%;
+          padding-bottom: 10%;
 
       }
       
@@ -329,6 +330,7 @@
           padding-bottom: 2%;
           padding-top: 2%;
           padding-left:2%; 
+          text-align: center;
       }
       
       /* Background-color of the odd rows */
@@ -374,127 +376,63 @@
       .container2 th:nth-child(4) { display: none; }
       }
     </style>
-  <div class="col-md-6 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0; ">
-      <h1> Group W </h1>
-      <table class="container2 text-center" >
+  <div class="col-md-3 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0; ">
+       <table class="container2 text-center" >
           <thead>
             <tr>
-              <th><h1>No.</h1></th>
-              <th><h1>Nama Tim</h1></th>
-              <th><h1>GP</h1></th>
-              <th><h1>W</h1></th>
-              <th><h1>D</h1></th>                    
-              <th><h1>L</h1></th>
-              <th><h1>GF</h1></th>
-              <th><h1>GD</h1></th>
-              <th><h1>PTS</h1></th>
+             
+              <th><h1> Group W</h1></th>
             </tr>
           </thead>
           <tbody>
             <tr>
                 <td> Hai</td>
-                <td> Hai</td>                     
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-            </tr>       
+              </tr>   
           </tbody>
           </table>
   </div>
-  <div class="col-md-6 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
-      <h1> Group X </h1>
-      <table class="container2 text-center" >
+  <div class="col-md-3 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
+       <table class="container2 text-center" >
           <thead>
             <tr>
-              <th><h1>No.</h1></th>
-              <th><h1>Nama Tim</h1></th>
-              <th><h1>GP</h1></th>
-              <th><h1>W</h1></th>
-              <th><h1>D</h1></th>                    
-              <th><h1>L</h1></th>
-              <th><h1>GF</h1></th>
-              <th><h1>GD</h1></th>
-              <th><h1>PTS</h1></th>
+             
+              <th><h1> Group X</h1></th>
             </tr>
           </thead>
           <tbody>
             <tr>
                 <td> Hai</td>
-                <td> Hai</td>                     
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-            </tr>       
+              </tr>   
           </tbody>
           </table>
   </div>
-  <div class="col-md-6 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0;">
-      <h1> Group Y </h1>
-      <table class="container2 text-center" >
+  <div class="col-md-3 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0;">
+       <table class="container2 text-center" >
           <thead>
             <tr>
-              <th><h1>No.</h1></th>
-              <th><h1>Nama Tim</h1></th>
-              <th><h1>GP</h1></th>
-              <th><h1>W</h1></th>
-              <th><h1>D</h1></th>                    
-              <th><h1>L</h1></th>
-              <th><h1>GF</h1></th>
-              <th><h1>GD</h1></th>
-              <th><h1>PTS</h1></th>
+             
+              <th><h1> Group Y</h1></th>
             </tr>
           </thead>
           <tbody>
             <tr>
                 <td> Hai</td>
-                <td> Hai</td>                     
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-            </tr>       
+              </tr>   
           </tbody>
           </table>
   </div>
-  <div class="col-md-6 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
-      <h1> Group Z </h1>
-      <table class="container2 text-center" >
+  <div class="col-md-3 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
+       <table class="container2 text-center" >
           <thead>
             <tr>
-              <th><h1>No.</h1></th>
-              <th><h1>Nama Tim</h1></th>
-              <th><h1>GP</h1></th>
-              <th><h1>W</h1></th>
-              <th><h1>D</h1></th>                    
-              <th><h1>L</h1></th>
-              <th><h1>GF</h1></th>
-              <th><h1>GD</h1></th>
-              <th><h1>PTS</h1></th>
+             
+              <th><h1>Group Z</h1></th>
             </tr>
           </thead>
           <tbody>
             <tr>
                 <td> Hai</td>
-                <td> Hai</td>                     
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-                <td> Hai</td>
-            </tr>       
+              </tr>   
           </tbody>
           </table>
   </div>

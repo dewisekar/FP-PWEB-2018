@@ -64,7 +64,7 @@
   	  	</ul>   
   	</nav>
   	<div class="col-md-12 text-center">
-  		<img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top: 1%; padding-bottom: 0;" >
+  		<a href="index.php"><img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top: 1%; padding-bottom: 0;" ></a>
   		<h2 style="margin-top: 0%;"> Data Foto Tim</h2>
 	</div>
 </div>

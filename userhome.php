@@ -9,6 +9,10 @@
     window.location.href="login.php";
    </script> <?php
  }
+  $id = $_SESSION['u_username'];
+  $sql = mysqli_query($con, "select * from users where u_id = '$id'") or die (mysqli_error());
+  $data = mysqli_fetch_assoc($sql);
+  mysqli_close($con);
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -53,14 +57,13 @@
 		<ul>
   	  	  <li><a href="userhome.php">Dashboard</a></li>
   	  	  <li><a href="berkasoffline.php">Berkas Offline</a></li>
-  	  	  <li><a href="index.php">IFC 2018 Home</a></li>
   	  	  <li><a href="berkasonline.php">Berkas Online</a></li>
   	  	  <li><a href="action_userlogout.php">Logout</a></li>    
   	  	</ul>   
   	</nav>
   	<div class="col-md-12 text-center animate fadeInUp">
-  		<img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top: 1%; padding-bottom: 0;" >
-  		<h2 style="margin-top: 0%;"> Selamat datang di Dashboard IFC 2018! </h2>
+  		<a href="index.php"><img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top: 1%; padding-bottom: 0;" ></a>
+  		<h2 style="margin-top: 0%;"> Selamat datang tim <?php echo "$data[u_nama]"; ?> di Dashboard IFC 2018! </h2>
   		<p style="margin-bottom: 2%;"> Agar tim dinyatakan resmi menjadi peserta IFC 2018, harap melengkapi berkas-berkas berikut: </p>
   	</div>
   	<div class="col-md-3"></div>

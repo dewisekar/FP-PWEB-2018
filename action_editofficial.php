@@ -1,16 +1,17 @@
 <?php
 	include "dbconnect.php";
-	$nama = @$_POST['o_nama'];
-	$noind = @$_POST[ 'o_noidentitas'];
-	$posisi = @$_POST['o_posisi'];
+	$id = @$_POST['p_id'];
+	$nama = @$_POST['p_nama'];
+	$nrp = @$_POST[ 'p_nrp'];
+	$posisi = @$_POST['p_posisi'];
 	$submit = @$_POST['submit'];
-	$id = @$_POST['o_id'];
+	$id = @$_POST['p_id'];
 
 	if($submit)
 	{
 		if($posisi=='Coach')
 		{
-			$masuk = "insert into official (o_nama, o_noidentitas, o_posisi, o_timid) values ('$nama', '$noind', '0', '$id')";
+			$masuk = "update official set o_nama='$nama', o_noidentitas = '$nrp', o_posisi ='0' where o_id = '$id'";
 			$masuk2 = mysqli_query($con, $masuk) or die (mysqli_error());;
 			mysqli_close($con);
 			header("location: berkasonline.php");
@@ -18,20 +19,22 @@
 		}
 		else if($posisi=='Ass. Coach')
 		{
-			$masuk = "insert into official (o_nama, o_noidentitas, o_posisi, o_timid) values ('$nama', '$noind', '1', '$id')";
+			
+			$masuk = "update official set o_nama='$nama', o_noidentitas = '$nrp', o_posisi ='1' where o_id = '$id'";
 			$masuk2 = mysqli_query($con, $masuk) or die (mysqli_error());;
 			mysqli_close($con);
 			header("location: berkasonline.php");
 			die();
-		}	
+		}
 		else
 		{
-			$masuk = "insert into official (o_nama, o_noidentitas, o_posisi, o_timid) values ('$nama', '$noind', '2', '$id')";
+			
+			$masuk = "update official set o_nama='$nama', o_noidentitas = '$nrp', o_posisi ='2' where o_id = '$id'";
 			$masuk2 = mysqli_query($con, $masuk) or die (mysqli_error());;
 			mysqli_close($con);
 			header("location: berkasonline.php");
 			die();
-		}	
+		}		
 	}
 ?>
  

@@ -1,15 +1,42 @@
 <?php
-  include 'dbconnect.php';
-  
-  session_start();
-  if (!isset($_SESSION['u_username'])) {
-  ?>
-   <script type="text/javascript">
-    alert("Login First!");
-    window.location.href="login.php";
-   </script> <?php
- }
- $id= $_SESSION['u_username'];
+  	include 'dbconnect.php';
+  	
+  	session_start();
+  	if (!isset($_SESSION['u_username'])) {
+  		?>
+  		 <script type="text/javascript">
+  		  alert("Login First!");
+  		  window.location.href="login.php";
+  		 </script> <?php
+ 	}
+	$id= $_SESSION['u_username'];
+	$qry="SELECT * FROM pemain where p_timid = $id";
+	$result = mysqli_query($con,$qry);
+	$row = mysqli_fetch_all($result,MYSQLI_ASSOC); 
+	$qry1="SELECT * FROM official where o_timid = $id";
+	$result = mysqli_query($con,$qry1);
+	$row1 = mysqli_fetch_all($result,MYSQLI_ASSOC); 
+	$no = 0;
+	$no1 = 0; 
+	mysqli_close($con); 
+	$act = isset($_GET['act']) ? $_GET['act'] : "";
+	if ($act=="del"){
+		$uid = $_GET['uid'];
+		include("dbconnect.php");
+		mysqli_query($con, "DELETE FROM pemain where p_id=$uid");
+	    mysqli_close($con);
+	    header("location:berkasonline.php");
+	    die();
+	}
+	else if ($act=="del2"){
+		$uid = $_GET['uid'];
+		include("dbconnect.php");
+		mysqli_query($con, "DELETE FROM official where o_id=$uid");
+	    mysqli_close($con);
+	    header("location:berkasonline.php");
+	    die();
+	}
+	
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -54,13 +81,12 @@
 		<ul>
   	  	  <li><a href="userhome.php">Dashboard</a></li>
   	  	  <li><a href="berkasoffline.php">Berkas Offline</a></li>
-  	  	  <li><a href="index.php">IFC 2018 Home</a></li>
   	  	  <li><a href="berkasonline.php">Berkas Online</a></li>
   	  	  <li><a href="action_userlogout.php">Logout</a></li>      
   	  	</ul>   
   	</nav>
   	<div class="col-md-12 text-center">
-  		<img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top: 1%; padding-bottom: 0;" >
+  		<a href="index.php"><img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top: 1%; padding-bottom: 0;" ></a>
   		<p style="margin-bottom: 2%;"> Jangan lupa untuk mengumpulkan berkas offline selambat-lambatnya sebelum technical meeting I IFC 2018 berlangsung. </p>
 	</div>
 </div>
@@ -152,6 +178,14 @@
 			  text-decoration: none;
 			  color: #fff;
 			}
+
+			td .btn{
+				width: 50%;
+			}
+
+			td .btn:hover{
+				background-color: white;
+			}
   		</style>
   		<table>
 			<thead>
@@ -165,14 +199,23 @@
 			</tr>
 			</thead>
 			<tbody>
+			<?php for ($i=0;$i<sizeof($row);$i++) { ?>
 			<tr>
-				<td>John</td>
-				<td>Cena</td>
-				<td>121</td>
-				<td>John</td>
-				<td>Cena</td>
-				<td>121</td>
+				<td><?php echo ++$no?>.</td>
+				<td><?php echo $row[$i]['p_nama']?></td>
+				<td><?php echo $row[$i]['p_nrp']?></td>
+				<td><?php echo $row[$i]['p_nopung']?></td>
+				<td><?php
+						if($row[$i]['p_posisi']=="0")
+						{ 
+							echo "Kiper";}
+						else{ 
+							echo "Pemain";}
+					?>
+				</td>
+				<td><a href="edit_pemain.php?uid=<?php echo $row[$i]['p_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-edit"></span></a><a href="?act=del&uid=<?php echo $row[$i]['p_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
 			</tr>
+				<?php } ?>
 			</tbody>
 		</table>
   		</div>
@@ -207,6 +250,13 @@
 			  text-decoration: none;
 			  color: #fff;
 			}
+			td .btn{
+				width: 50%;
+			}
+
+			td .btn:hover{
+				background-color: white;
+			}
   		</style>
   		<table>
 			<thead>
@@ -219,13 +269,25 @@
 			</tr>
 			</thead>
 			<tbody>
+			<?php for ($i=0;$i<sizeof($row1);$i++) { ?>
 			<tr>
-				<td>John</td>
-				<td>Cena</td>
-				<td>121</td>
-				<td>Cena</td>
-				<td>121</td>
+				<td><?php echo ++$no1?>.</td>
+				<td><?php echo $row1[$i]['o_nama']?></td>
+				<td><?php echo $row1[$i]['o_noidentitas']?></td>
+				<td><?php
+						if($row1[$i]['o_posisi']=="0")
+						{ 
+							echo "Coach";}
+						else if($row1[$i]['o_posisi']=="1"){ 
+							echo "Ass. Coach";}
+						else{
+							echo "Manager";
+						}
+					?>
+				</td>
+				<td><a  href="edit_official.php?uid=<?php echo $row1[$i]['o_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-edit"></span></a><a  href="?act=del2&uid=<?php echo $row1[$i]['o_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
 			</tr>
+				<?php } ?>
 			</tbody>
 		</table>
   		</div>
@@ -233,12 +295,38 @@
   				<a id="no3" class="icon icon-sort-down" style="text-align: center; color: white;"></a><p style="float: right;">Upload Berkas</p>  				
   		</div>
   		<div id="tabel3" style="border: 1px solid white;">
-  			<p> SOON TO BE BAGUS</p>
-  			<form action="/action_page.php">
-			  	Select image to upload:
-    			<input type="file" name="fileToUpload" id="fileToUpload">
-    			<input type="submit" value="Upload Image" name="submit">
-			</form>
+  			GATAU DEH SUSAH NEH
+  			<style type="text/css">
+  			.file-upload{display:block;text-align:center;font-family: Helvetica, Arial, sans-serif;font-size: 12px;}
+			.file-upload .file-select{display:block;border: 2px solid #dce4ec;color: #34495e;cursor:pointer;height:40px;line-height:40px;			text-align:left;background:#FFFFFF;overflow:hidden;position:relative;}
+			.file-upload .file-select .file-select-button{background:#dce4ec;padding:0 10px;display:inline-block;height:40px;line-height:			40px;}
+			.file-upload .file-select .file-select-name{line-height:40px;display:inline-block;padding:0 10px;}
+			.file-upload .file-select:hover{border-color:#34495e;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;			-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+			.file-upload .file-select:hover .file-select-button{background:#34495e;color:#FFFFFF;transition:all .2s ease-in-out;-moz-			transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+			.file-upload.active .file-select{border-color:#3fa46a;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;			-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+			.file-upload.active .file-select .file-select-button{background:#3fa46a;color:#FFFFFF;transition:all .2s ease-in-out;-moz-			transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+			.file-upload .file-select input[type=file]{z-index:100;cursor:pointer;position:absolute;height:100%;width:100%;top:0;left:0;			opacity:0;filter:alpha(opacity=0);}
+			.file-upload .file-select.file-select-disabled{opacity:0.65;}
+			.file-upload .file-select.file-select-disabled:hover{cursor:default;display:block;border: 2px solid #dce4ec;color: #34495e;			cursor:pointer;height:40px;line-height:40px;margin-top:5px;text-align:left;background:#FFFFFF;overflow:hidden;position:			relative;}
+			.file-upload .file-select.file-select-disabled:hover .file-select-button{background:#dce4ec;color:#666666;padding:0 10px;			display:inline-block;height:40px;line-height:40px;}
+			.file-upload .file-select.file-select-disabled:hover .file-select-name{line-height:40px;display:inline-block;padding:0 10px;}
+  			</style>
+			<div class="file-upload">
+			
+			<form method="post" action="uploadzip.php" enctype="multipart/form-data">
+			  <div class="file-select">
+			    <div class="file-select-button" id="fileName">Choose File</div>
+			    <div class="file-select-name"  id="noFile">No file chosen...</div> 
+			    <input type="file" name="fileToUpload" id="chooseFile">
+			    <input type="hidden" class="form-control" name="p_id" value="<?php echo "$id"; ?>" >			   	 
+			  </div>			  
+			</div>
+			<div class="form-group" style="margin-bottom: 0; padding-bottom: 0;">
+				<a>
+	    		 	<input type="submit" value="Submit" name="submit">
+	    		</a>
+			</div>
+		</form>
   		</div>
   	</div>
   	<div class="col-md-1"></div>
@@ -494,4 +582,18 @@ window.onclick = function(event) {
         return false;
     }
 }
+</script>
+<script type="text/javascript">
+$('#chooseFile').bind('change', function () {
+  var filename = $("#chooseFile").val();
+  if (/^\s*$/.test(filename)) {
+    $(".file-upload").removeClass('active');
+    $("#noFile").text("No file chosen..."); 
+  }
+  else {
+    $(".file-upload").addClass('active');
+    $("#noFile").text(filename.replace("C:\\fakepath\\", "")); 
+  }
+});
+
 </script>

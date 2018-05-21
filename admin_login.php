@@ -5,7 +5,7 @@
   if (isset($_SESSION['a_username'])) {
   ?>
    <script type="text/javascript">
-    window.location.href="userhome.php";
+    window.location.href="adminhome.php";
    </script> <?php
  }
 ?>
@@ -28,7 +28,7 @@
 	                    <h2> Are you admin? </h2>
 	                    <form  method="POST" action="action_adminlogin.php">
 	                        <div class="form-group row">
-	                        	<a href="/"> <img style="width:30%" src="images/logoifc2.png" class="user"></img></a>
+	                        	<a href="index.php"> <img style="width:30%" src="images/logoifc2.png" class="user"></img></a>
 	
 	                        	<p>Username</p>                          
 	                            <div class="col-md-6">

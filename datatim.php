@@ -18,6 +18,15 @@
  $no = 0;
  $no1 = 0; 
  mysqli_close($con);
+	$act = isset($_GET['act']) ? $_GET['act'] : "";
+	if ($act=="del"){
+		$uid = $_GET['uid'];
+		include("dbconnect.php");
+		mysqli_query($con, "DELETE FROM users where u_id=$uid");
+	    mysqli_close($con);
+	    header("location:datatim.php");
+	    die();
+	}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -73,7 +82,7 @@
   	  	</ul>   
   	</nav>
   	<div class="col-md-12 text-center">
-  		<img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top: 1%; padding-bottom: 0;" >
+  		<a href="index.php"><img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top: 1%; padding-bottom: 0;" ></a>
   		<h2 style="margin-top: 0%;"> Data Tim</h2>
 	</div>
 </div>
@@ -131,6 +140,13 @@
   				padding: 1px 2px 1px 2px;
   				margin: 1px 2px 1px 2px;
   			}
+  				td .btn{
+				width: 100%;
+			}
+
+			td .btn:hover{
+				background-color: white;
+			}
 
    		</style>
   		<div id="headers" style="margin-top: 2%;">
@@ -180,7 +196,7 @@
 				<td><?php echo ++$no?>.</td>
 				<td><?php echo $row[$i]['u_nama']?></td>
 				<td><?php echo $row[$i]['u_username']?></td>
-				<td>121</td>
+				<td><a href="?act=del&uid=<?php echo $row[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
 			</tr>
 				<?php } ?>
 			</tbody>
@@ -231,9 +247,9 @@
 			<?php for ($i=0;$i<sizeof($row1);$i++) { ?>
 			<tr>
 				<td><?php echo ++$no1?>.</td>
-				<td><?php echo $row[$i]['u_nama']?></td>
-				<td><?php echo $row[$i]['u_username']?></td>
-				<td>121</td>
+				<td><?php echo $row1[$i]['u_nama']?></td>
+				<td><?php echo $row1[$i]['u_username']?></td>
+				<td><a href="?act=del&uid=<?php echo $row1[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
 			</tr>
 				<?php } ?>
 			</tbody>
