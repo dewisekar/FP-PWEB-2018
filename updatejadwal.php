@@ -17,6 +17,15 @@
   $groupcew = mysqli_fetch_all($result,MYSQLI_ASSOC);
   mysqli_close($con);
   include 'klasementabel.php';
+  $act = isset($_GET['act']) ? $_GET['act'] : "";
+  if ($act=="del"){
+    $uid = $_GET['uid'];
+    include("dbconnect.php");
+    mysqli_query($con, "update users set u_group=NULL, u_pool=NULL where u_id=$uid");
+    mysqli_close($con);
+    header("location:updatejadwal.php");
+    die();
+  }
 
  ?>
 <!DOCTYPE HTML>
@@ -325,12 +334,14 @@
             <tr>
              
               <th><h1>Group A</h1></th>
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
              <?php for ($i=0;$i<sizeof($groupA);$i++) { ?>
             <tr>
               <td><?php echo $groupA[$i]['u_nama']?></td>
+              <td><a href="?act=del&uid=<?php echo $groupA[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?> 
           </tbody>
@@ -342,12 +353,14 @@
             <tr>
              
               <th><h1>Group B</h1></th>
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupB);$i++) { ?>
             <tr>
               <td><?php echo $groupB[$i]['u_nama']?></td>
+              <td><a href="?act=del&uid=<?php echo $groupB[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>
           </tbody>
@@ -359,12 +372,14 @@
             <tr>
              
               <th><h1>Group C</h1></th>
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
            <?php for ($i=0;$i<sizeof($groupC);$i++) { ?>
             <tr>
               <td><?php echo $groupC[$i]['u_nama']?></td>
+              <td><a href="?act=del&uid=<?php echo $groupC[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>   
           </tbody>
@@ -376,12 +391,14 @@
             <tr>
              
               <th><h1> Group D </h1></th>
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupD);$i++) { ?>
             <tr>
               <td><?php echo $groupD[$i]['u_nama']?></td>
+              <td><a href="?act=del&uid=<?php echo $groupD[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -393,12 +410,14 @@
             <tr>
              
               <th><h1> Group E</h1></th>
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupE);$i++) { ?>
             <tr>
               <td><?php echo $groupE[$i]['u_nama']?></td>
+              <td><a href="?act=del&uid=<?php echo $groupE[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -410,12 +429,14 @@
             <tr>
              
               <th><h1> Group F</h1></th>
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupF);$i++) { ?>
             <tr>
               <td><?php echo $groupF[$i]['u_nama']?></td>
+              <td><a href="?act=del&uid=<?php echo $groupF[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>
           </tbody>
@@ -427,12 +448,14 @@
             <tr>
              
               <th><h1> Group G</h1></th>
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupG);$i++) { ?>
             <tr>
               <td><?php echo $groupG[$i]['u_nama']?></td>
+              <td><a href="?act=del&uid=<?php echo $groupG[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -444,12 +467,14 @@
             <tr>
              
               <th><h1> Group H</h1></th>
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupH);$i++) { ?>
             <tr>
               <td><?php echo $groupH[$i]['u_nama']?></td>
+              <td><a href="?act=del&uid=<?php echo $groupH[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -552,12 +577,14 @@
             <tr>
              
               <th><h1> Group W</h1></th>
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
            <?php for ($i=0;$i<sizeof($groupW);$i++) { ?>
             <tr>
               <td><?php echo $groupW[$i]['u_nama']?></td>
+              <td><a href="?act=del&uid=<?php echo $groupW[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?> 
           </tbody>
@@ -569,12 +596,14 @@
             <tr>
              
               <th><h1> Group X</h1></th>
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
            <?php for ($i=0;$i<sizeof($groupX);$i++) { ?>
             <tr>
               <td><?php echo $groupX[$i]['u_nama']?></td>
+              <td><a href="?act=del&uid=<?php echo $groupX[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -586,12 +615,14 @@
             <tr>
              
               <th><h1> Group Y</h1></th>
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupY);$i++) { ?>
             <tr>
               <td><?php echo $groupY[$i]['u_nama']?></td>
+              <td><a href="?act=del&uid=<?php echo $groupY[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -603,12 +634,14 @@
             <tr>
              
               <th><h1>Group Z</h1></th>
+              <th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupZ);$i++) { ?>
             <tr>
               <td><?php echo $groupZ[$i]['u_nama']?></td>
+              <td><a href="?act=del&uid=<?php echo $groupZ[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
           </tbody>
