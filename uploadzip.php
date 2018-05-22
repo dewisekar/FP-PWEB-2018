@@ -37,7 +37,6 @@
 				//SQL STAGE
 				$query = mysqli_query($con, "INSERT INTO filefoto(f_nama, f_type, f_size, f_content, f_timid) 
 					VALUES ('$name', '$filetype', '$filesize', '$content','$f_timid')");
-				echo "1";
 				header("Location:berkasonline.php?");
 				die();
 				//header("Location:admin_kamera.php?error=1");

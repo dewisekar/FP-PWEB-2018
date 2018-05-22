@@ -167,146 +167,222 @@
       .container3 th:nth-child(4) { display: none; }
       }
     </style>
-  <div class="col-md-3 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0; ">
-      <table class="container3 text-center" >
+  <div class="col-md-6 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0; ">
+      <h2 style="margin-bottom: 0; padding-bottom: 0;"> Group A </h2>
+      <table class="container3 text-center" style="margin: 0; padding: 0;" >
           <thead>
             <tr>
              
-              <th><h1>Group A</h1></th>
+              <th><h1>Tanggal</h1></th>
+              <th><h1>Home</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>VS</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>Away</h1></th>
                
             </tr>
           </thead>
           <tbody>
              <?php for ($i=0;$i<sizeof($groupA);$i++) { ?>
            <tr>
-              <td><p style="font-size: 15px;"><?php echo $groupA[$i]['u_nama']?> VS <?php echo $groupA1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupA[$i]['j_tanggal']?></p></td>
+              <td><?php echo $groupA[$i]['j_tanggal']?></td>
+              <td><?php echo $groupA[$i]['u_nama']?></td>
+              <td><?php echo $groupA[$i]['j_sh']?></td>
+              <td>VS</td>
+              <td><?php echo $groupA[$i]['j_sa']?></td>
+              <td><?php echo $groupA1[$i]['u_nama']?></td>
             </tr>
             <?php } ?> 
           </tbody>
           </table>
   </div>
-  <div class="col-md-3 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
-       <table class="container3 text-center" >
+  <div class="col-md-6 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
+      <h2 style="margin-bottom: 0; padding-bottom: 0;"> Group B </h2>
+      <table class="container3 text-center" style="margin: 0; padding: 0;" >
           <thead>
             <tr>
              
-              <th><h1>Group B</h1></th>
+              <th><h1>Tanggal</h1></th>
+              <th><h1>Home</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>VS</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>Away</h1></th>
                
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupB);$i++) { ?>
-            <tr>
-              <td><p style="font-size: 15px;"><?php echo $groupB[$i]['u_nama']?> VS <?php echo $groupB1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupB[$i]['j_tanggal']?></p></td>
-            </tr>
+              <td><?php echo $groupB[$i]['j_tanggal']?></td>
+              <td><?php echo $groupB[$i]['u_nama']?></td>
+              <td><?php echo $groupB[$i]['j_sh']?></td>
+              <td>VS</td>
+              <td><?php echo $groupB[$i]['j_sa']?></td>
+              <td><?php echo $groupB1[$i]['u_nama']?></td>
             <?php } ?>
           </tbody>
           </table>
   </div>
-  <div class="col-md-3 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0;">
-      <table class="container3 text-center" >
+  <div class="col-md-6 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0;">
+      <h2 style="margin-bottom: 0; padding-bottom: 0;"> Group C </h2>
+      <table class="container3 text-center" style="margin: 0; padding: 0;" >
           <thead>
             <tr>
              
-              <th><h1>Group C</h1></th>
+              <th><h1>Tanggal</h1></th>
+              <th><h1>Home</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>VS</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>Away</h1></th>
                
             </tr>
           </thead>
           <tbody>
            <?php for ($i=0;$i<sizeof($groupC);$i++) { ?>
-            <tr>
-              <td><p style="font-size: 15px;"><?php echo $groupC[$i]['u_nama']?> VS <?php echo $groupC1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupC[$i]['j_tanggal']?></p></td>
-            </tr>
+              <td><?php echo $groupC[$i]['j_tanggal']?></td>
+              <td><?php echo $groupC[$i]['u_nama']?></td>
+              <td><?php echo $groupC[$i]['j_sh']?></td>
+              <td>VS</td>
+              <td><?php echo $groupC[$i]['j_sa']?></td>
+              <td><?php echo $groupC1[$i]['u_nama']?></td>
             <?php } ?>   
           </tbody>
           </table>
   </div>
-  <div class="col-md-3 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
-       <table class="container3 text-center" >
+  <div class="col-md-6 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
+       <h2 style="margin-bottom: 0; padding-bottom: 0;"> Group D </h2>
+      <table class="container3 text-center" style="margin: 0; padding: 0;" >
           <thead>
             <tr>
              
-              <th><h1> Group D </h1></th>
+              <th><h1>Tanggal</h1></th>
+              <th><h1>Home</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>VS</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>Away</h1></th>
                
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupD);$i++) { ?>
-            <tr>
-              <td><p style="font-size: 15px;"><?php echo $groupD[$i]['u_nama']?> VS <?php echo $groupD1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupD[$i]['j_tanggal']?></p></td>
-            </tr>
+              <td><?php echo $groupD[$i]['j_tanggal']?></td>
+              <td><?php echo $groupD[$i]['u_nama']?></td>
+              <td><?php echo $groupD[$i]['j_sh']?></td>
+              <td>VS</td>
+              <td><?php echo $groupD[$i]['j_sa']?></td>
+              <td><?php echo $groupD1[$i]['u_nama']?></td>
             <?php } ?>  
           </tbody>
           </table>
   </div>
-  <div class="col-md-3 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0;">
-       <table class="container3 text-center" >
+  <div class="col-md-6 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0;">
+       <h2 style="margin-bottom: 0; padding-bottom: 0;"> Group E </h2>
+      <table class="container3 text-center" style="margin: 0; padding: 0;" >
           <thead>
             <tr>
              
-              <th><h1> Group E</h1></th>
+              <th><h1>Tanggal</h1></th>
+              <th><h1>Home</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>VS</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>Away</h1></th>
                
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupE);$i++) { ?>
-            <tr>
-              <td><p style="font-size: 15px;"><?php echo $groupE[$i]['u_nama']?> VS <?php echo $groupE1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupE[$i]['j_tanggal']?></p></td>
-            </tr>
+           <td><?php echo $groupE[$i]['j_tanggal']?></td>
+              <td><?php echo $groupE[$i]['u_nama']?></td>
+              <td><?php echo $groupE[$i]['j_sh']?></td>
+              <td>VS</td>
+              <td><?php echo $groupE[$i]['j_sa']?></td>
+              <td><?php echo $groupE1[$i]['u_nama']?></td>
             <?php } ?>  
           </tbody>
           </table>
   </div>
-  <div class="col-md-3 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
-       <table class="container3 text-center" >
+  <div class="col-md-6 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
+       <h2 style="margin-bottom: 0; padding-bottom: 0;"> Group F </h2>
+      <table class="container3 text-center" style="margin: 0; padding: 0;" >
           <thead>
             <tr>
              
-              <th><h1> Group F</h1></th>
+              <th><h1>Tanggal</h1></th>
+              <th><h1>Home</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>VS</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>Away</h1></th>
                
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupF);$i++) { ?>
-            <tr>
-              <td><p style="font-size: 15px;"><?php echo $groupF[$i]['u_nama']?> VS <?php echo $groupF1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupF[$i]['j_tanggal']?></p></td>
-            </tr>
+              <td><?php echo $groupF[$i]['j_tanggal']?></td>
+              <td><?php echo $groupF[$i]['u_nama']?></td>
+              <td><?php echo $groupF[$i]['j_sh']?></td>
+              <td>VS</td>
+              <td><?php echo $groupF[$i]['j_sa']?></td>
+              <td><?php echo $groupF1[$i]['u_nama']?></td>
             <?php } ?>
           </tbody>
           </table>
   </div>
-  <div class="col-md-3 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0;">
-       <table class="container3 text-center" >
+  <div class="col-md-6 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0;">
+      <h2 style="margin-bottom: 0; padding-bottom: 0;"> Group G </h2>
+      <table class="container3 text-center" style="margin: 0; padding: 0;" >
           <thead>
             <tr>
              
-              <th><h1> Group G</h1></th>
+              <th><h1>Tanggal</h1></th>
+              <th><h1>Home</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>VS</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>Away</h1></th>
                
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupG);$i++) { ?>
             <tr>
-              <td><p style="font-size: 15px;"><?php echo $groupG[$i]['u_nama']?> VS <?php echo $groupG1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupG[$i]['j_tanggal']?></p></td>
+              <td><?php echo $groupG[$i]['j_tanggal']?></td>
+              <td><?php echo $groupG[$i]['u_nama']?></td>
+              <td><?php echo $groupG[$i]['j_sh']?></td>
+              <td>VS</td>
+              <td><?php echo $groupG[$i]['j_sa']?></td>
+              <td><?php echo $groupG1[$i]['u_nama']?></td>
             </tr>
             <?php } ?>  
           </tbody>
           </table>
   </div>
-  <div class="col-md-3 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
-       <table class="container3 text-center" >
+  <div class="col-md-6 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
+      <h2 style="margin-bottom: 0; padding-bottom: 0;"> Group H </h2>
+      <table class="container3 text-center" style="margin: 0; padding: 0;" >
           <thead>
             <tr>
              
-              <th><h1> Group H</h1></th>
+              <th><h1>Tanggal</h1></th>
+              <th><h1>Home</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>VS</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>Away</h1></th>
                
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupH);$i++) { ?>
-            <tr>
-              <td><p style="font-size: 15px;"><?php echo $groupH[$i]['u_nama']?> VS <?php echo $groupH1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupH[$i]['j_tanggal']?></p></td>
-            </tr>
+              <td><?php echo $groupH[$i]['j_tanggal']?></td>
+              <td><?php echo $groupH[$i]['u_nama']?></td>
+              <td><?php echo $groupH[$i]['j_sh']?></td>
+              <td>VS</td>
+              <td><?php echo $groupH[$i]['j_sa']?></td>
+              <td><?php echo $groupH1[$i]['u_nama']?></td>
             <?php } ?>  
           </tbody>
           </table>
@@ -402,74 +478,110 @@
       .container2 th:nth-child(4) { display: none; }
       }
     </style>
-  <div class="col-md-3 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0; ">
+  <div class="col-md-6 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0; ">
+    <h2 style="margin-bottom: 0; padding-bottom: 0;"> Group W </h2>
        <table class="container2 text-center" >
           <thead>
             <tr>
              
-              <th><h1> Group W</h1></th>
+              <th><h1>Tanggal</h1></th>
+              <th><h1>Home</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>VS</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>Away</h1></th>
                
             </tr>
           </thead>
           <tbody>
            <?php for ($i=0;$i<sizeof($groupW);$i++) { ?>
-            <tr>
-              <td><p style="font-size: 15px;"><?php echo $groupW[$i]['u_nama']?> VS <?php echo $groupW1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupW[$i]['j_tanggal']?></p></td>
-            </tr>
+              <td><?php echo $groupW[$i]['j_tanggal']?></td>
+              <td><?php echo $groupW[$i]['u_nama']?></td>
+              <td><?php echo $groupW[$i]['j_sh']?></td>
+              <td>VS</td>
+              <td><?php echo $groupW[$i]['j_sa']?></td>
+              <td><?php echo $groupW1[$i]['u_nama']?></td>
             <?php } ?> 
           </tbody>
           </table>
   </div>
-  <div class="col-md-3 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
+  <div class="col-md-6 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
+    <h2 style="margin-bottom: 0; padding-bottom: 0;"> Group X </h2>
        <table class="container2 text-center" >
           <thead>
             <tr>
              
-              <th><h1> Group X</h1></th>
+              <th><h1>Tanggal</h1></th>
+              <th><h1>Home</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>VS</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>Away</h1></th>
                
             </tr>
           </thead>
           <tbody>
            <?php for ($i=0;$i<sizeof($groupX);$i++) { ?>
-           <tr>
-              <td><p style="font-size: 15px;"><?php echo $groupX[$i]['u_nama']?> VS <?php echo $groupX1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupX[$i]['j_tanggal']?></p></td>
-            </tr>
+            <td><?php echo $groupX[$i]['j_tanggal']?></td>
+              <td><?php echo $groupX[$i]['u_nama']?></td>
+              <td><?php echo $groupX[$i]['j_sh']?></td>
+              <td>VS</td>
+              <td><?php echo $groupX[$i]['j_sa']?></td>
+              <td><?php echo $groupX1[$i]['u_nama']?></td>
             <?php } ?>  
           </tbody>
           </table>
   </div>
-  <div class="col-md-3 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0;">
+  <div class="col-md-6 text-center animate fadeInLeft" style="margin-top: 0; padding-top: 0;">
+    <h2 style="margin-bottom: 0; padding-bottom: 0;"> Group Y </h2>
        <table class="container2 text-center" >
           <thead>
             <tr>
              
-              <th><h1> Group Y</h1></th>
+              <th><h1>Tanggal</h1></th>
+              <th><h1>Home</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>VS</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>Away</h1></th>
                
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupY);$i++) { ?>
-            <tr>
-              <td><p style="font-size: 15px;"><?php echo $groupY[$i]['u_nama']?> VS <?php echo $groupY1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupY[$i]['j_tanggal']?></p></td>
-            </tr>
+            <td><?php echo $groupY[$i]['j_tanggal']?></td>
+              <td><?php echo $groupY[$i]['u_nama']?></td>
+              <td><?php echo $groupY[$i]['j_sh']?></td>
+              <td>VS</td>
+              <td><?php echo $groupY[$i]['j_sa']?></td>
+              <td><?php echo $groupY1[$i]['u_nama']?></td>
             <?php } ?>  
           </tbody>
           </table>
   </div>
-  <div class="col-md-3 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
+  <div class="col-md-6 text-center animate fadeInRight" style="margin-top: 0; padding-top: 0;">
+    <h2 style="margin-bottom: 0; padding-bottom: 0;"> Group Z </h2>
        <table class="container2 text-center" >
           <thead>
             <tr>
              
-              <th><h1>Group Z</h1></th>
+              <th><h1>Tanggal</h1></th>
+              <th><h1>Home</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>VS</h1></th>
+              <th><h1>Score</h1></th>
+              <th><h1>Away</h1></th>
                
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupZ);$i++) { ?>
-            <tr>
-              <td><p style="font-size: 15px;"><?php echo $groupZ[$i]['u_nama']?> VS <?php echo $groupZ1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupZ[$i]['j_tanggal']?></p></td>
-            </tr>
+            <td><?php echo $groupZ[$i]['j_tanggal']?></td>
+              <td><?php echo $groupZ[$i]['u_nama']?></td>
+              <td><?php echo $groupZ[$i]['j_sh']?></td>
+              <td>VS</td>
+              <td><?php echo $groupZ[$i]['j_sa']?></td>
+              <td><?php echo $groupZ1[$i]['u_nama']?></td>
             <?php } ?>  
           </tbody>
           </table>

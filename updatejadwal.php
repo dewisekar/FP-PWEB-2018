@@ -167,7 +167,7 @@
   				margin: 1px 2px 1px 2px;
   			}
   				td .btn{
-				width: 100%;
+				width: 50%;
 			}
 
 			td .btn:hover{
@@ -230,7 +230,7 @@
     	  	  <td><?php echo $row3[$i]['j_group']?></td>
     	  	  <td><?php echo $row3[$i]['j_sh']?></td>
     	  	  <td><?php echo $row3[$i]['j_sa']?></td>
-    	  	  <td><a href="?act=del&uid=<?php echo $row3[$i]['j_id']?>" class="btn" style="text-align: center; border: 	none;	"><span class="icon icon-trash"></span></a></td>
+    	  	  <td><a href="?act=del&uid=<?php echo $row3[$i]['j_id']?>" class="btn" style="text-align: center; border: 	none;	"><span class="icon icon-trash"><a href="editjadwal.php?uid=<?php echo $row3[$i]['j_id']?>" class="btn" style="text-align: center; border:  none; "><span class="icon icon-edit"></span></a></td>
     	  	</tr>
     	  	<?php } ?>
     	  </tbody>
@@ -291,7 +291,7 @@
     	  	  <td><?php echo $row1[$i]['j_group']?></td>
     	  	  <td><?php echo $row1[$i]['j_sh']?></td>
     	  	  <td><?php echo $row1[$i]['j_sa']?></td>
-    	  	  <td><a href="?act=del&uid=<?php echo $row1[$i]['j_id']?>" class="btn" style="text-align: center; border: 	none;	"><span class="icon icon-trash"></span></a></td>
+    	  	  <td><a href="?act=del&uid=<?php echo $row1[$i]['j_id']?>" class="btn" style="text-align: center; border: 	none;	"><span class="icon icon-trash"><a href="editjadwal.php?uid=<?php echo $row3[$i]['j_id']?>" class="btn" style="text-align: center; border:  none; "><span class="icon icon-edit"></span></a></span></a></td>
     	  	</tr>
     	  	  <?php } ?>
     	  </tbody>
