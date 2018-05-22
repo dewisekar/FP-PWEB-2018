@@ -3,12 +3,30 @@
   
   session_start();
   if (!isset($_SESSION['a_username'])) {
-  ?>
-   <script type="text/javascript">
-    alert("Sorry, you are not an admin.");
-    window.location.href="admin_login.php";
-   </script> <?php
- }
+    ?>
+     <script type="text/javascript">
+      alert("Sorry, you are not an admin.");
+      window.location.href="admin_login.php";
+     </script> <?php
+  }     
+  $qry2="SELECT * FROM filefoto inner join users on filefoto.f_timid = users.u_id where users.u_papi ='0'";
+  $result = mysqli_query($con,$qry2);
+  $row3 = mysqli_fetch_all($result,MYSQLI_ASSOC);
+  $qry3="SELECT * FROM filefoto inner join users on filefoto.f_timid = users.u_id where users.u_papi ='1'";
+  $result = mysqli_query($con,$qry3);
+  $row4 = mysqli_fetch_all($result,MYSQLI_ASSOC);
+  $no = 0;
+  $no1 = 0;
+  $act = isset($_GET['act']) ? $_GET['act'] : "";
+  if ($act=="del"){
+    $uid = $_GET['uid'];
+    include("dbconnect.php");
+    mysqli_query($con, "DELETE FROM filefoto where f_id=$uid");
+    mysqli_close($con);
+    header("location:datafototim.php");
+    die();
+  } 
+  mysqli_close($con);
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -32,10 +50,7 @@
 <script src="js/init.js"></script>
 <script type="text/javascript" src="js/jquery.visible.js" charset="utf-8"></script>
 <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" charset="utf-8"></script>
-
 <noscript>
-
-
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/skel-noscript.css">
@@ -140,19 +155,27 @@
 			}
 			
 			td, th { 
-			  padding: 8px; 
-			  text-align: left; 
+			  padding: 8px;  
 			}		
 			
 			th { 
 			  background: rgba(23,51,89,0.6);; 
 			  font-weight: bold; 
+        text-align: center;
 			}
 			
 			h1 a {
 			  text-decoration: none;
 			  color: #fff;
 			}
+       .btn{
+        width: 50%;
+      }
+
+      td .btn:hover{
+        background-color: white;
+      }
+
   		</style>
   		<table>
 			<thead>
@@ -164,14 +187,17 @@
 			</tr>
 			</thead>
 			<tbody>
-			<tr>
-				<td>John</td>
-				<td>Cena</td>
-				<td>121</td>
-				<td>121</td>
+			<?php for ($i=0;$i<sizeof($row3);$i++) { ?>
+      <tr>
+        <td><?php echo ++$no1?>.</td>
+        <td><?php echo $row3[$i]['u_nama']?></td>
+        <td><?php echo $row3[$i]['f_nama']?></td>
+        <td><a href="?act=&uid=<?php echo $row3[$i]['f_id'] ?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-download"></span></a><a href="?act=del&uid=<?php echo $row3[$i]['f_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
+      </tr>
+        <?php } ?>
 			</tbody>
 		</table>
-  		</div>
+  	</div>
   		<div id="headers" style="margin-top: 2%;">
   			<a id="no2" class="icon icon-sort-down" style="text-align: center; color: white;"></a><p style="float: right;">Data Tim Putri</p>
   		</div>
@@ -196,13 +222,22 @@
 			
 			th { 
 			  background: rgba(23,51,89,0.6);; 
-			  font-weight: bold; 
+			  font-weight: bold;
+        text-align: center; 
 			}
 			
 			h1 a {
 			  text-decoration: none;
 			  color: #fff;
 			}
+       .btn{
+        width: 50%;
+      }
+
+      td .btn:hover{
+        background-color: white;
+      }
+
   		</style>
   		<table>
 			<thead>
@@ -214,18 +249,19 @@
 			</tr>
 			</thead>
 			<tbody>
-			<tr>
-				<td>John</td>
-				<td>Cena</td>
-				<td>121</td>
-				<td>121</td>
-			</tr>
+			<?php for ($i=0;$i<sizeof($row4);$i++) { ?>
+      <tr>
+        <td><?php echo ++$no?>.</td>
+        <td><?php echo $row4[$i]['u_nama']?></td>
+        <td><?php echo $row4[$i]['f_nama']?></td>
+        <td><a href="?act=&uid=<?php echo $row3[$i]['f_id'] ?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-download"></span></a><a href="?act=del&uid=<?php echo $row3[$i]['f_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
+      </tr>
+        <?php } ?>
 			</tbody>
 		</table>
   		</div>
   	</div>
   	<div class="col-md-1"></div>
-
 </div>
 
 <div id="footer" style="padding-top: 0">
@@ -275,29 +311,4 @@ $(document).ready(function(){
     });
 });
 </script>
-<script>
-$(document).ready(function(){
-    $("#no3").click(function(){
-        $("#tabel3").slideToggle();
-    });
-});
-</script>
-<script type="text/javascript">
-function getModal(newcolor){
-var modal = document.getElementById(newcolor);
-modal.style.display = "block";
 
-var span = document.getElementById('close');
-var span2 = document.getElementById('close1');
-span.onclick = function() {
-    modal.style.display = "none";
-}
-span2.onclick = function() {
-    modal.style.display = "none";
-}
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}}
-</script>

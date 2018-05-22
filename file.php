@@ -10,11 +10,10 @@
      </script> <?php
   }
      
-  $a = 'A';
-  $qry="SELECT * FROM users where  u_group='A' ";
-  $result = mysqli_query($con,$qry);
-  $groupA = mysqli_fetch_all($result,MYSQLI_ASSOC);
-  print_r($groupA);
+  $qry2="SELECT * FROM filefoto inner join users on filefoto.f_timid = users.u_id where users.u_papi ='0'";
+  $result = mysqli_query($con,$qry2);
+  $row3 = mysqli_fetch_all($result,MYSQLI_ASSOC);
+  print_r($row3);
   mysqli_close($con);
 
  ?>

@@ -404,10 +404,10 @@
     <div class="row">
 
       <section class="12u" style="border: 1px solid white; padding-top: 2%; padding-bottom: 4%; padding-left: 4%; padding-right: 4%;" >
-       <h1 style="color: white; font-size: 30px;"> Supported by: </h1>
-       <img style="align:center; width: 100%;" src="images/sop.png">
-       <h1 style="color: white; font-size: 30px;"> Sponsored by: </h1>
-       <img style="align:center; width: 100%;" src="images/sponsor.png">
+      	<h1 style="color: white; font-size: 30px;"> Supported by: </h1>
+      	<img style="align:center; width: 100%;" src="images/sop.png">
+      	<h1 style="color: white; font-size: 30px;"> Sponsored by: </h1>
+      	<img style="align:center; width: 100%;" src="images/sponsor.png">
       </section>  
         <div class="copyright">
           <ul class="menu">

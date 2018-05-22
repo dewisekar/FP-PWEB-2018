@@ -40,9 +40,6 @@
 				echo "1";
 				header("Location:berkasonline.php?");
 				die();
-			
-
-
 				//header("Location:admin_kamera.php?error=1");
 			}
 
