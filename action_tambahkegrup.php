@@ -11,7 +11,7 @@
 		$masuk = "update users set u_group='$group', u_pool = '$nrp' where u_id = '$id'";
 		$masuk2 = mysqli_query($con, $masuk) or die (mysqli_error());;
 		mysqli_close($con);
-		header("location: updatejadwal.php");
+		header("location: updategroup.php");
 		die();
 		
 	}

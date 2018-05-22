@@ -119,9 +119,9 @@
 	        <p>No. Punggung</p>              
 	        <input type="text" id="username" name="p_nopung" value="<?php echo "$data[p_nopung]"; ?>" required>
 	        <p>Posisi</p>
-	        <input type="text" id="username" name="p_nopung2" value="<?php if("$data[p_posisi]"==0){
-	        	echo "Kiper";} else{echo "Pemain";} ?>" readonly>
 	        <select class="form-control" name="p_posisi" style="margin-bottom: 5%;">
+                <option><?php if("$data[p_posisi]"==0){
+            echo "Kiper";} else{echo "Pemain";} ?></option>
                	<option>Pemain</option>
                	<option>Kiper</option>
              </select>                                 	 

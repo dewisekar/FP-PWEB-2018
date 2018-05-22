@@ -136,12 +136,12 @@
 
       <section class="contact">
           <ul class="icons" style="background: rgba(66,156,227,0.4);">
-            <li><a href="#" class="icon icon-twitter" ><span>Twitter</span></a></li>
-            <li><a href="#" class="icon icon-facebook"><span>Facebook</span></a></li>
-            <li><a href="#" class="icon icon-youtube"><span>Google+</span></a></li>
-            <li><a href="#" class="icon icon-instagram"><span>Pinterest</span></a></li>
+            <li><a href="https://www.twitter.com/ifc_2018" target="_blank" class="icon icon-twitter" ><span>Twitter</span></a></li>
+            <li><a href="#" target="_blank" class="icon icon-facebook"><span>Facebook</span></a></li>
+            <li><a href="https://www.youtube.com/channel/UCMN5Kb0LH6W7H8R2VQkRk0w" target="_blank" class="icon icon-youtube"><span>Youtube</span></a></li>
+            <li><a href="https://www.instagram.com/ifc_2018" target="_blank" class="icon icon-instagram"><span>Instagram</span></a></li>
           </ul>
-        </section>
+    </section>
     </div>
   </div>
 </div>

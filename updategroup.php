@@ -1,15 +1,15 @@
 <?php
-   include 'dbconnect.php';
-   
+  include 'dbconnect.php';
+  
   session_start();
   if (!isset($_SESSION['a_username'])) {
-    ?>
-     <script type="text/javascript">
-      alert("Sorry, you are not an admin.");
-      window.location.href="admin_login.php";
-     </script> <?php
-  }
-  $qry="SELECT * FROM users where u_papi= '0' and u_group is null";
+  ?>
+   <script type="text/javascript">
+    alert("Sorry, you are not an admin.");
+    window.location.href="admin_login.php";
+   </script> <?php
+ }
+ $qry="SELECT * FROM users where u_papi= '0' and u_group is null";
   $result = mysqli_query($con,$qry);
   $groupcow = mysqli_fetch_all($result,MYSQLI_ASSOC);
   $qry="SELECT * FROM users where u_papi= '1' and u_group is null";
@@ -26,12 +26,11 @@
     header("location:updatejadwal.php");
     die();
   }
-
- ?>
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Group dan Jadwal</title>
+<title>Update Group</title>
 <meta charset="utf-8">
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Fira+Sans:400,400italic' rel='stylesheet' type='text/css'>
@@ -67,70 +66,70 @@
 </head>
 <body class="homepage">
 <div id="syarat" class="row" style="background: #282b33; margin-bottom: 0; padding-bottom: 0px;">
-  <nav id="nav">
-    <ul>
-          <li><a href="adminhome.php">Dashboard</a></li>
-          <li><a href="datatim.php">Data Tim</a></li>
-          <li><a href="datafototim.php">Data Berkas Foto</a></li>
+	<nav id="nav">
+		<ul>
+  	  	  <li><a href="adminhome.php">Dashboard</a></li>
+  	  	  <li><a href="datatim.php">Data Tim</a></li>
+  	  	  <li><a href="datafototim.php">Data Berkas Foto</a></li>
           <li> <span>Jadwal dan Klasemen</span>
                 <ul>
-                  <li><a href="updategroup.php">Edit Group</a></li>
-                  <li><a href="#">Jadwal</a></li>
-                  <li><a href="#">Update Klasemen</a></li>
+                	<li><a href="updategroup.php">Edit Group</a></li>
+                  <li><a href="updatejadwal.php">Jadwal</a></li>
                 </ul>            
           </li>
-          <li><a href="action_adminlogout.php">Logout</a></li>      
-        </ul>   
-    </nav>
-  <div class="col-md-12 text-center animate fadeInDown">
-      <a href="index.php"><img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top: 1%; padding-bottom: 0;" ></a>
-      <h2 style="margin-top: 0; margin-bottom: 0; padding-bottom: 0;">Klasemen ITS Futsal Championship 2018</h2>
-  </div>
-  <h2 style="text-align: center;">Tambah Tim ke Group </h2>
-  <div class="col-md-2"></div>
-  <div class="col-md-8" style="height: auto; border: none;">
-    <style>  
-    label{
-      color: white;
-    }  
-    /* Style the tab */
-    .tab {
-        overflow: hidden;
-        border: 1px solid #ccc;
-        background-color: #f1f1f1;
-        padding: 0; margin: 0;
-    }
-    
-    /* Style the buttons inside the tab */
-    .tab button {
-        background-color: inherit;
-        float: left;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
-        transition: 0.3s;
-        font-size: 17px;
-    }
-    
-    /* Change background color of buttons on hover */
-    .tab button:hover {
-        background-color: #ddd;
-    }
-    
-    /* Create an active/current tablink class */
-    .tab button.active {
-        background-color: #ccc;
-    }
-    
-    /* Style the tab content */
-    .tabcontent {
-        display: none;
-        padding: 6px 12px;
-        border: 1px solid #ccc;
-        border-top: none;
-    }
-    </style>  
+  	  	  <li><a href="action_adminlogout.php">Logout</a></li>      
+  	  	</ul>   
+  	</nav>
+  	<div class="col-md-12 text-center">
+  		<a href="index.php"><img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top: 1%; padding-bottom: 0;" ></a>
+  		<h2 style="margin-top: 0%;"> Data Grup</h2>
+	</div>
+</div>
+<div class="row" id="syarat2">
+	<div class="col-md-2"></div>
+	<div class="col-md-8 text-center">
+		 <style>  
+    	label{
+    	  color: white;
+    	}  
+    	/* Style the tab */
+    	.tab {
+    	    overflow: hidden;
+    	    border: 1px solid #ccc;
+    	    background-color: #f1f1f1;
+    	    padding: 0; margin: 0;
+    	}
+    	
+    	/* Style the buttons inside the tab */
+    	.tab button {
+    	    background-color: inherit;
+    	    float: left;
+    	    border: none;
+    	    outline: none;
+    	    cursor: pointer;
+    	    padding: 14px 16px;
+    	    transition: 0.3s;
+    	    font-size: 17px;
+    	}
+    	
+    	/* Change background color of buttons on hover */
+    	.tab button:hover {
+    	    background-color: #ddd;
+    	}
+    	
+    	/* Create an active/current tablink class */
+    	.tab button.active {
+    	    background-color: #ccc;
+    	}
+    	
+    	/* Style the tab content */
+    	.tabcontent {
+    	    display: none;
+    	    padding: 6px 12px;
+    	    border: 1px solid #ccc;
+    	    border-top: none;
+    	}
+    	</style>  
     
     <div class="tab">
       <button class="tablinks" onclick="openCity(event, 'London')">Putra</button>
@@ -142,6 +141,7 @@
         <div class="form-group">
           <label for="email">Nama Tim:</label>
           <select id="country" class="form-control"  name="tim">
+          	<option>Pilih Tim</option>
           <?php for ($i=0;$i<sizeof($groupcow);$i++) {
             echo '<option value="'.$groupcow[$i][u_id].'">'.$groupcow[$i][u_nama].'</option>';
           }
@@ -183,6 +183,7 @@
         <div class="form-group">
           <label for="email">Nama Tim:</label>
           <select id="country" class="form-control"  name="tim">
+          	<option>Pilih Tim</option>
           <?php for ($i=0;$i<sizeof($groupcew);$i++) {
             echo '<option value="'.$groupcew[$i][u_id].'">'.$groupcew[$i][u_nama].'</option>';
           }
@@ -215,29 +216,11 @@
     </form>
     </div>
     
-
-
 	</div>
-  <div class="col-md-2"></div>
-  <div class="row" style="width: 100%; padding: 0; margin: 0; margin-bottom: 0;"> 
-    <style>
-  		.col-md-12{
-  			padding: 3%;
-        height: auto; 
-  		}
-      .col-md-8{
-        border: 1px solid white;
-        padding: 3%;
-        margin-top: 3%;
-        height: 450px;
-      }
-  	</style>
-
-	
-  
-   <div class="col-md-12 text-center" style="margin-top: 0; padding-right: 5;">
-    <h1 style="font-size: 40px; font-weight: bold;"> Tim Putra </h1>
-    <style type="text/css">
+	<div class="col-md-2"></div>
+	<div class="col-md-12 text-center">
+	<h1 style="font-size: 40px; font-weight: bold;"> Tim Putra </h1>
+  	<style type="text/css">
       h1{
         color: white;
         margin-top: 1%;
@@ -331,13 +314,14 @@
             <tr>
              
               <th><h1>Group A</h1></th>
-              <th><h1> Action </h1></th>
+              <th><h1> Pool </h1></th><th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
              <?php for ($i=0;$i<sizeof($groupA);$i++) { ?>
             <tr>
               <td><?php echo $groupA[$i]['u_nama']?></td>
+              <td><?php echo $groupA[$i]['u_pool']?></td>
               <td><a href="?act=del&uid=<?php echo $groupA[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?> 
@@ -350,13 +334,14 @@
             <tr>
              
               <th><h1>Group B</h1></th>
-              <th><h1> Action </h1></th>
+              <th><h1> Pool </h1></th><th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupB);$i++) { ?>
             <tr>
               <td><?php echo $groupB[$i]['u_nama']?></td>
+              <td><?php echo $groupB[$i]['u_pool']?></td>
               <td><a href="?act=del&uid=<?php echo $groupB[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>
@@ -369,13 +354,14 @@
             <tr>
              
               <th><h1>Group C</h1></th>
-              <th><h1> Action </h1></th>
+              <th><h1> Pool </h1></th><th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
            <?php for ($i=0;$i<sizeof($groupC);$i++) { ?>
             <tr>
               <td><?php echo $groupC[$i]['u_nama']?></td>
+              <td><?php echo $groupC[$i]['u_pool']?></td>
               <td><a href="?act=del&uid=<?php echo $groupC[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>   
@@ -388,13 +374,14 @@
             <tr>
              
               <th><h1> Group D </h1></th>
-              <th><h1> Action </h1></th>
+              <th><h1> Pool </h1></th><th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupD);$i++) { ?>
             <tr>
               <td><?php echo $groupD[$i]['u_nama']?></td>
+              <td><?php echo $groupD[$i]['u_pool']?></td>
               <td><a href="?act=del&uid=<?php echo $groupD[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
@@ -407,13 +394,14 @@
             <tr>
              
               <th><h1> Group E</h1></th>
-              <th><h1> Action </h1></th>
+              <th><h1> Pool </h1></th><th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupE);$i++) { ?>
             <tr>
               <td><?php echo $groupE[$i]['u_nama']?></td>
+              <td><?php echo $groupE[$i]['u_pool']?></td>
               <td><a href="?act=del&uid=<?php echo $groupE[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
@@ -426,13 +414,14 @@
             <tr>
              
               <th><h1> Group F</h1></th>
-              <th><h1> Action </h1></th>
+              <th><h1> Pool </h1></th><th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupF);$i++) { ?>
             <tr>
               <td><?php echo $groupF[$i]['u_nama']?></td>
+              <td><?php echo $groupF[$i]['u_pool']?></td>
               <td><a href="?act=del&uid=<?php echo $groupF[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>
@@ -445,13 +434,14 @@
             <tr>
              
               <th><h1> Group G</h1></th>
-              <th><h1> Action </h1></th>
+              <th><h1> Pool </h1></th><th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupG);$i++) { ?>
             <tr>
               <td><?php echo $groupG[$i]['u_nama']?></td>
+              <td><?php echo $groupG[$i]['u_pool']?></td>
               <td><a href="?act=del&uid=<?php echo $groupG[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
@@ -464,22 +454,23 @@
             <tr>
              
               <th><h1> Group H</h1></th>
-              <th><h1> Action </h1></th>
+              <th><h1> Pool </h1></th><th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupH);$i++) { ?>
             <tr>
               <td><?php echo $groupH[$i]['u_nama']?></td>
+              <td><?php echo $groupH[$i]['u_pool']?></td>
               <td><a href="?act=del&uid=<?php echo $groupH[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
           </tbody>
           </table>
   </div>
-  </div>
-  <div class="col-md-12 text-center" style="margin-top: 0; padding-right: 5;">
-    <h1 style="font-size: 40px; font-weight: bold;"> Tim Putri </h1>
+</div>
+  <div class="col-md-12 text-center">
+   <h1 style="font-size: 40px; font-weight: bold;"> Tim Putri </h1>
     <style type="text/css">
       h1{
         color: white;
@@ -574,13 +565,14 @@
             <tr>
              
               <th><h1> Group W</h1></th>
-              <th><h1> Action </h1></th>
+              <th><h1> Pool </h1></th><th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
            <?php for ($i=0;$i<sizeof($groupW);$i++) { ?>
             <tr>
               <td><?php echo $groupW[$i]['u_nama']?></td>
+              <td><?php echo $groupW[$i]['u_pool']?></td>
               <td><a href="?act=del&uid=<?php echo $groupW[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?> 
@@ -593,13 +585,14 @@
             <tr>
              
               <th><h1> Group X</h1></th>
-              <th><h1> Action </h1></th>
+              <th><h1> Pool </h1></th><th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
            <?php for ($i=0;$i<sizeof($groupX);$i++) { ?>
             <tr>
               <td><?php echo $groupX[$i]['u_nama']?></td>
+              <td><?php echo $groupX[$i]['u_pool']?></td>
               <td><a href="?act=del&uid=<?php echo $groupX[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
@@ -612,13 +605,14 @@
             <tr>
              
               <th><h1> Group Y</h1></th>
-              <th><h1> Action </h1></th>
+              <th><h1> Pool </h1></th><th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupY);$i++) { ?>
             <tr>
               <td><?php echo $groupY[$i]['u_nama']?></td>
+              <td><?php echo $groupY[$i]['u_pool']?></td>
               <td><a href="?act=del&uid=<?php echo $groupY[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
@@ -631,33 +625,36 @@
             <tr>
              
               <th><h1>Group Z</h1></th>
-              <th><h1> Action </h1></th>
+              <th><h1> Pool </h1></th><th><h1> Action </h1></th>
             </tr>
           </thead>
           <tbody>
             <?php for ($i=0;$i<sizeof($groupZ);$i++) { ?>
             <tr>
               <td><?php echo $groupZ[$i]['u_nama']?></td>
+              <td><?php echo $groupZ[$i]['u_pool']?></td>
               <td><a href="?act=del&uid=<?php echo $groupZ[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
             </tr>
             <?php } ?>  
           </tbody>
           </table>
   </div>
-  </div>
+
+
 </div>
 
 <div id="footer" style="padding-top: 0">
-  <h2> Catch on our social platforms: </h2>
   <div class="container">
+  	<h2 style="margin-top: 1%; text-align: center;"><strong style="font-size: 30px;"> MORE INFORMATION:</strong></h2>
+    <p style="margin-bottom: 2%; text-align: center;"> Mar'atun: Line: atunmaratun | HP: 08977566064 </p>
     <section class="contact">
-          <ul class="icons" style="background: rgba(24,65,80,0.4); margin-top: 0%;">
-            <li><a href="#" class="icon icon-twitter" ><span>Twitter</span></a></li>
-            <li><a href="#" class="icon icon-facebook"><span>Facebook</span></a></li>
-            <li><a href="#" class="icon icon-youtube"><span>Google+</span></a></li>
-            <li><a href="#" class="icon icon-instagram"><span>Pinterest</span></a></li>
+          <ul class="icons" style="background: rgba(66,156,227,0.4);">
+            <li><a href="https://www.twitter.com/ifc_2018" target="_blank" class="icon icon-twitter" ><span>Twitter</span></a></li>
+            <li><a href="#" target="_blank" class="icon icon-facebook"><span>Facebook</span></a></li>
+            <li><a href="https://www.youtube.com/channel/UCMN5Kb0LH6W7H8R2VQkRk0w" target="_blank" class="icon icon-youtube"><span>Youtube</span></a></li>
+            <li><a href="https://www.instagram.com/ifc_2018" target="_blank" class="icon icon-instagram"><span>Instagram</span></a></li>
           </ul>
-        </section>
+    </section>
     <div class="row">
 
       <section class="12u" style="border: 1px solid white; padding-top: 2%; padding-bottom: 4%; padding-left: 4%; padding-right: 4%;" >
@@ -674,47 +671,58 @@
       </div>
     </div>
   </div>
+</div>
 </body>
-<script type="text/javascript">
-
-</script>
 </html>
-<script type="text/javascript">
+<script>
 $(document).ready(function(){
-    $('#country').on('change',function(){
-        var countryID = $(this).val();
-        if(countryID){
-            $.ajax({
-                type:'POST',
-                url:'ajaxData.php',
-                data:'country_id='+countryID,
-                success:function(html){
-                    $('#state').html(html);
-                    $('#city').html('<option value="">Select state first</option>'); 
-                }
-            }); 
-        }else{
-            $('#state').html('<option value="">Select country first</option>');
-            $('#city').html('<option value="">Select state first</option>'); 
-        }
-    });
-    
-    $('#state').on('change',function(){
-        var stateID = $(this).val();
-        if(stateID){
-            $.ajax({
-                type:'POST',
-                url:'ajaxData.php',
-                data:'state_id='+stateID,
-                success:function(html){
-                    $('#city').html(html);
-                }
-            }); 
-        }else{
-            $('#city').html('<option value="">Select state first</option>'); 
-        }
+    $("#no1").click(function(){
+        $("#tabel1").slideToggle();
     });
 });
+</script>
+<script>
+$(document).ready(function(){
+    $("#no2").click(function(){
+        $("#tabel2").slideToggle();
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+    $("#no3").click(function(){
+        $("#tabel3").slideToggle();
+    });
+});
+</script>
+<script type="text/javascript">
+function getModal(newcolor){
+var modal = document.getElementById(newcolor);
+modal.style.display = "block";
+
+var span = document.getElementById('close');
+var span2 = document.getElementById('close1');
+span.onclick = function() {
+    modal.style.display = "none";
+}
+span2.onclick = function() {
+    modal.style.display = "none";
+}
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}}
+</script>
+<script type="text/javascript">
+	function validateForm() {
+    var x = document.forms["myForm"]["tim_password"].value;
+    var sx = x.length;
+    if (sx< 6) {
+        alert("Password minimal 6 karakter!");
+        return false;
+    }
+}
 </script>
 <script>
 function openCity(evt, cityName) {
@@ -731,3 +739,4 @@ function openCity(evt, cityName) {
     evt.currentTarget.className += " active";
 }
 </script>
+

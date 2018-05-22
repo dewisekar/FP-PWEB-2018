@@ -117,9 +117,9 @@
 	      	<p>No. Identitas</p>                        
 	        <input type="text" id="username" name="p_nrp" value="<?php echo "$data[o_noidentitas]"; ?>" required>
 	        <p>Posisi</p>
-	        <input type="text" id="username" name="p_nopung2" value="<?php if("$data[o_posisi]"==0){
-	        	echo "Coach";} else if("$data[o_posisi]"==1){echo "Ass. Coach";} else{echo "Manager";} ?>" readonly>
 	        <select class="form-control" name="p_posisi" style="margin-bottom: 5%;">
+                <option><?php if("$data[o_posisi]"==0){
+            echo "Coach";} else if("$data[o_posisi]"==1){echo "Ass. Coach";} else{echo "Manager";} ?></option>
                 <option>Coach</option>
                	<option>Ass. Coach</option>
                	<option>Manager</option>

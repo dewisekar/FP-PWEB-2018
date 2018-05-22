@@ -377,7 +377,7 @@
   			<ul class="nav">
   			
   				 <?php for ($i=0;$i<sizeof($row3);$i++) {
-          		  echo '<li><p style="font-size:15px;">'.$row3[$i]['f_nama'].'<a href="downloadbalik.php?id='.$row3[$i]['f_id'].'" class="btn" >Download</a><a href="?act=del3&uid='.$row3[$i]['f_id'].'" class="btn">Delete</a></p></li>';
+          		  echo '<li><p style="font-size:15px;">'.$row3[$i]['f_nama'].'<a href="action_downloadberkasfoto.php?id='.$row3[$i]['f_id'].'" class="btn" >Download</a><a href="?act=del3&uid='.$row3[$i]['f_id'].'" class="btn">Delete</a></p></li>';
           		}
           		?>
   			</ul>
@@ -394,13 +394,13 @@
   	<h2 style="margin-top: 0; text-align: center;"><strong style="font-size: 30px;"> MORE INFORMATION:</strong></h2>
     <p style="margin-bottom: 2%; text-align: center;"> Mar'atun: Line: atunmaratun | HP: 08977566064 </p>
     <section class="contact">
-          <ul class="icons" style="background: rgba(24,65,80,0.4); margin-top: 0%;">
-            <li><a href="#" class="icon icon-twitter" ><span>Twitter</span></a></li>
-            <li><a href="#" class="icon icon-facebook"><span>Facebook</span></a></li>
-            <li><a href="#" class="icon icon-youtube"><span>Google+</span></a></li>
-            <li><a href="#" class="icon icon-instagram"><span>Pinterest</span></a></li>
+          <ul class="icons" style="background: rgba(66,156,227,0.4);">
+            <li><a href="https://www.twitter.com/ifc_2018" target="_blank" class="icon icon-twitter" ><span>Twitter</span></a></li>
+            <li><a href="#" target="_blank" class="icon icon-facebook"><span>Facebook</span></a></li>
+            <li><a href="https://www.youtube.com/channel/UCMN5Kb0LH6W7H8R2VQkRk0w" target="_blank" class="icon icon-youtube"><span>Youtube</span></a></li>
+            <li><a href="https://www.instagram.com/ifc_2018" target="_blank" class="icon icon-instagram"><span>Instagram</span></a></li>
           </ul>
-        </section>
+    </section>
     <div class="row">
 
       <section class="12u" style="border: 1px solid white; padding-top: 2%; padding-bottom: 4%; padding-left: 4%; padding-right: 4%;" >
