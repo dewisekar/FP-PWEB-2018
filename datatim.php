@@ -196,7 +196,7 @@
 				<td><?php echo ++$no?>.</td>
 				<td><?php echo $row[$i]['u_nama']?></td>
 				<td><?php echo $row[$i]['u_username']?></td>
-				<td><a href="?act=del&uid=<?php echo $row[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
+				<td><a href="?act=del&uid=<?php echo $row[$i]['u_id']?>" class="btn" style="text-align: center; border: none; width: 50%;"><span class="icon icon-trash"></span></a><a href="viewtim.php?timid=<?php echo $row[$i]['u_id']?>" class="btn" style="text-align: center; border: none; width: 50%;"><span class="icon icon-list"></span></a></td>
 			</tr>
 				<?php } ?>
 			</tbody>
@@ -249,7 +249,7 @@
 				<td><?php echo ++$no1?>.</td>
 				<td><?php echo $row1[$i]['u_nama']?></td>
 				<td><?php echo $row1[$i]['u_username']?></td>
-				<td><a href="?act=del&uid=<?php echo $row1[$i]['u_id']?>" class="btn" style="text-align: center; border: none;"><span class="icon icon-trash"></span></a></td>
+				<td><a href="?act=del&uid=<?php echo $row1[$i]['u_id']?>" class="btn" style="text-align: center; border: none; width: 50%;"><span class="icon icon-trash"></span></a><a href="viewtim.php?timid=<?php echo $row1[$i]['u_id']?>" class="btn" style="text-align: center; border: none; width: 50%;"><span class="icon icon-list"></span></a></td>
 			</tr>
 				<?php } ?>
 			</tbody>

@@ -9,46 +9,32 @@
     window.location.href="admin_login.php";
    </script> <?php
  }
-  $qry="SELECT * FROM groupifc where g_papi= '0'";
-  $result = mysqli_query($con,$qry);
-  $groupcow = mysqli_fetch_all($result,MYSQLI_ASSOC);
-  $qry="SELECT * FROM groupifc where g_papi= '1'";
-  $result = mysqli_query($con,$qry);
-  $groupcew = mysqli_fetch_all($result,MYSQLI_ASSOC);
-  $qry="SELECT * FROM users where u_group = 'W'";
-  $result = mysqli_query($con,$qry);
-  $row = mysqli_fetch_all($result,MYSQLI_ASSOC); 
-  $qry1="SELECT * FROM jadwal inner join users on jadwal.j_th = users.u_id where u_papi = 1 order by j_group, j_tanggal";
-  $result = mysqli_query($con,$qry1);
-  $row1 = mysqli_fetch_all($result,MYSQLI_ASSOC); 
-  $qry1="SELECT * FROM jadwal inner join users on jadwal.j_ta = users.u_id where u_papi = 1 order by j_group, j_tanggal";
-  $result = mysqli_query($con,$qry1);
-  $row2 = mysqli_fetch_all($result,MYSQLI_ASSOC);
-  $qry1="SELECT * FROM jadwal inner join users on jadwal.j_th = users.u_id where u_papi = 0 order by j_group, j_tanggal";
-  $result = mysqli_query($con,$qry1);
-  $row3 = mysqli_fetch_all($result,MYSQLI_ASSOC); 
-  $qry1="SELECT * FROM jadwal inner join users on jadwal.j_ta = users.u_id where u_papi = 0 order by j_group, j_tanggal";
-  $result = mysqli_query($con,$qry1);
-  $row4 = mysqli_fetch_all($result,MYSQLI_ASSOC);  
-  $no = 0;
-  $no1 = 0; 
-  mysqli_close($con);
-  include 'klasementabel.php';
-
-  $act = isset($_GET['act']) ? $_GET['act'] : "";
-  if ($act=="del"){
-    $uid = $_GET['uid'];
-    include("dbconnect.php");
-    mysqli_query($con, "DELETE FROM jadwal where j_id=$uid");
-    mysqli_close($con);
-    header("location:updatejadwal.php");
-    die();
-  }
+ 	$timid = $_GET["timid"];
+ 	$sql = mysqli_query($con, "select * from users where u_id = '$timid'") or die (mysqli_error());
+ 	$login = mysqli_fetch_assoc($sql);
+ 	$qry="SELECT * FROM pemain where p_timid = '$timid' order by p_nopung asc";
+ 	$result = mysqli_query($con,$qry);
+ 	$row = mysqli_fetch_all($result,MYSQLI_ASSOC); 
+ 	 $qry1="SELECT * FROM official where o_timid = '$timid' order by o_posisi asc";
+ 	$result = mysqli_query($con,$qry1);
+ 	$row1 = mysqli_fetch_all($result,MYSQLI_ASSOC); 
+ 	$no = 0;
+ 	$no1 = 0; 
+ 	mysqli_close($con);
+	$act = isset($_GET['act']) ? $_GET['act'] : "";
+	if ($act=="del"){
+		$uid = $_GET['uid'];
+		include("dbconnect.php");
+		mysqli_query($con, "DELETE FROM users where u_id=$uid");
+	    mysqli_close($con);
+	    header("location:datatim.php");
+	    die();
+	}
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Data Tim</title>
+<title>Detail Tim</title>
 <meta charset="utf-8">
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Fira+Sans:400,400italic' rel='stylesheet' type='text/css'>
@@ -92,7 +78,7 @@
           <li> <span>Jadwal dan Klasemen</span>
                 <ul>
                 	<li><a href="updategroup.php">Edit Group</a></li>
-                  <li><a href="updatejadwal.php">Jadwal</a></li>
+                  	<li><a href="updatejadwal.php">Jadwal</a></li>
                 </ul>            
           </li>
   	  	  <li><a href="action_adminlogout.php">Logout</a></li>      
@@ -100,49 +86,12 @@
   	</nav>
   	<div class="col-md-12 text-center">
   		<a href="index.php"><img src="images/logoifc2.png" style="width: 15%; margin-bottom: 0; margin-top: 1%; padding-bottom: 0;" ></a>
-  		<h2 style="margin-top: 0%;"> Tambah Jadwal</h2>
+  		<h2 style="margin-top: 0%;"> Detail <?php echo $login['u_nama'] ?> - <?php if($login['u_papi']==0){echo 'Putra';} else{echo "Putri";} ?></h2>
 	</div>
 </div>
 <div class="row" id="syarat2">
   	<div class="col-md-1"></div>
   	<div class="col-md-10 animate fadeIn" style="margin-top: 0;">
-  		<form action="action_tambahjadwal.php" name="myForm" onsubmit="return validateForm()" method="POST" style="	margin-top: 0; margin-bottom: 5%;">
-    	  	<div class="form-group">
-    	  	  <label for="email">Putra/Putri</label>
-    	  	    <select  class="form-control" name="papi" id="papi" onChange="changePapi()">
-    	  	        <option value="">Select Putra/Putri</option>
-    	  	        <option value="0">Putra</option>
-    	  	        <option value="1">Putri</option>
-    	  	    </select>
-    	  	</div>
-    	   	<div class="form-group">
-    	   	 <label for="email">Group:</label>
-    	   	   <select  class="form-control" name="group" id="group" onChange="changeGroup()">
-    	   	        <option value="">Select Putra/Putri First</option>
-    	   	   </select>
-    	   	</div>
-    	   	<div class="form-group">
-    	   	  <label for="email">Tim Home:</label>
-    	   	  <select class="form-control"  name="timhome" id="timhome">
-    	   	    <option value="">Select Group First</option>
-    	   	  </select>
-    	   	</div>
-    	   	<div class="form-group">
-    	   	   <label for="email">Tim Away:</label>
-    	   	   <select  class="form-control"  name="timaway" id="timaway">
-    	   	     <option value="">Select Group First</option>
-    	   	   </select>
-    	   	</div>
-          <div class="form-group">
-             <label for="email">Waktu:</label>
-              <input type="datetime-local" name="tanggal" style=" border: 1px solid white; color: black;">
-          </div>
-    	   	<div class="form-group" >
-    	   	  <a style="margin-left: 30%; margin-right: auto;" >
-    	   	    <input type="submit" value="Submit" name="submit" style=" border: 1px solid white;">
-    	   	  </a>
-    	   	</div>
-    	</form>
   		<style type="text/css">
   			#headers{
   				background: #282b33;
@@ -208,33 +157,28 @@
 			}
   		</style>
   		<table>
-    	  <thead>
-    	  	<tr>
-    	  	  <th>No.</th>
-    	  	  <th>Home</th>       
-    	  	  <th>Away</th>
-    	  	  <th>Tanggal</th>
-    	  	  <th>Group</th>
-    	  	   <th>Sc. Home</th>
-    	  	  <th>Sc. Away</th>
-    	  	  <th>Keterangan</th>
-    	  	</tr>
-    	  </thead>
-    	  <tbody>
-    	  	<?php for ($i=0;$i<sizeof($row3);$i++) { ?>
-    	  	<tr>
-    	  	  <td><?php echo ++$no1?>.</td>
-    	  	  <td><?php echo $row3[$i]['u_nama']?></td>
-    	  	  <td><?php echo $row4[$i]['u_nama']?></td>
-    	  	  <td><?php echo $row3[$i]['j_tanggal']?></td>
-    	  	  <td><?php echo $row3[$i]['j_group']?></td>
-    	  	  <td><?php echo $row3[$i]['j_sh']?></td>
-    	  	  <td><?php echo $row3[$i]['j_sa']?></td>
-    	  	  <td><a href="?act=del&uid=<?php echo $row3[$i]['j_id']?>" class="btn" style="text-align: center; border: 	none;	"><span class="icon icon-trash"></span></a></td>
-    	  	</tr>
-    	  	<?php } ?>
-    	  </tbody>
-    	</table>
+			<thead>
+			<tr>
+				<th>No.</th>
+				<th>Nama Pemain</th>
+				<th>NRP</th>
+				<th>No. Punggung</th>
+				<th>Posisi</th>
+			</tr>
+			</thead>
+			<tbody>
+			<?php for ($i=0;$i<sizeof($row);$i++) { ?>
+			<tr>
+				<td><?php echo ++$no?>.</td>
+				<td><?php echo $row[$i]['p_nama']?></td>
+				<td><?php echo $row[$i]['p_nrp']?></td>
+				<td><?php echo $row[$i]['p_nopung']?></td>
+				<td><?php if($row[$i]['p_posisi']==0){
+            echo "Kiper";} else{echo "Pemain";} ?></td>
+			</tr>
+				<?php } ?>
+			</tbody>
+		</table>
   		</div>
   		<div id="headers" style="margin-top: 2%;">
   			<a id="no2" class="icon icon-sort-down" style="text-align: center; color: white;"></a><p style="float: right;">Data Tim Putri</p>
@@ -269,33 +213,26 @@
 			}
   		</style>
   		<table>
-    	  <thead>
-    	  	<tr>
-    	  	  <th>No.</th>
-    	  	  <th>Home</th>
-    	  	  <th>Away</th>
-    	  	  <th>Tanggal</th>
-    	  	  <th>Group</th>
-    	  	  <th>Sc. Home</th>
-    	  	  <th>Sc. Away</th>
-    	  	  <th>Keterangan</th>
-    	  	</tr>
-    	  </thead>
-    	  <tbody>
-    	  	<?php for ($i=0;$i<sizeof($row1);$i++) { ?>
-    	  	<tr>
-    	  	  <td><?php echo ++$no1?>.</td>
-    	  	  <td><?php echo $row1[$i]['u_nama']?></td>
-    	  	  <td><?php echo $row2[$i]['u_nama']?></td>
-    	  	  <td><?php echo $row1[$i]['j_tanggal']?></td>
-    	  	  <td><?php echo $row1[$i]['j_group']?></td>
-    	  	  <td><?php echo $row1[$i]['j_sh']?></td>
-    	  	  <td><?php echo $row1[$i]['j_sa']?></td>
-    	  	  <td><a href="?act=del&uid=<?php echo $row1[$i]['j_id']?>" class="btn" style="text-align: center; border: 	none;	"><span class="icon icon-trash"></span></a></td>
-    	  	</tr>
-    	  	  <?php } ?>
-    	  </tbody>
-    	</table>
+			<thead>
+			<tr>
+				<th>No.</th>
+				<th>Nama Official</th>
+				<th>No. Identitas</th>
+				<th>Posisi</th>
+			</tr>
+			</thead>
+			<tbody>
+			<?php for ($i=0;$i<sizeof($row1);$i++) { ?>
+			<tr>
+				<td><?php echo ++$no1?>.</td>
+				<td><?php echo $row1[$i]['o_nama']?></td>
+				<td><?php echo $row1[$i]['o_noidentitas']?></td>
+				<td><?php if($row1[$i]['o_posisi']==0){
+            echo "Coach";} else if($row1[$i]['o_posisi']==1){echo "Ass. Coach";} else{echo "Manager";} ?></td>
+			</tr>
+				<?php } ?>
+			</tbody>
+		</table>
   		</div>
   	</div>
   	<div class="col-md-1"></div>
@@ -330,6 +267,7 @@
       </div>
     </div>
   </div>
+  
 </body>
 </html>
 <script>
@@ -346,42 +284,5 @@ $(document).ready(function(){
     });
 });
 </script>
-<script type="text/javascript">
-	function validateForm() {
-    var x = document.forms["myForm"]["timhome"].value;
-    var y = document.forms["myForm"]["timaway"].value;
-    if (x==y) {
-        alert("Tim tidak boleh sama!");
-        return false;
-    }
-}
-</script>
-<script type="text/javascript">
-  function changeGroup()
-  {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", "fetch_group.php?group="+document.getElementById("group").value, false);
-    xmlhttp.send(null);
-    document.getElementById("timhome").innerHTML=xmlhttp.responseText;
-    document.getElementById("timaway").innerHTML=xmlhttp.responseText;
-  }
-</script>
-<script type="text/javascript">
-  function changePapi()
-  {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", "fetch_papi.php?papi="+document.getElementById("papi").value, false);
-    xmlhttp.send(null);
-    document.getElementById("group").innerHTML=xmlhttp.responseText;
-  }
-</script>
-<script type="text/javascript">
-  function changeTim()
-  {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", "fetch_papi.php?papi="+document.getElementById("papi").value, false);
-    xmlhttp.send(null);
-    document.getElementById("group").innerHTML=xmlhttp.responseText;
-  }
-</script>
+
 
