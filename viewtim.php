@@ -234,6 +234,10 @@
 			</tbody>
 		</table>
   		</div>
+  		<form method="post" action="export.php">
+  			<input type="hidden" name="timid" class="btn btn-success" value="<?php echo "$timid"?>" >
+    	 	<input type="submit" name="export" class="btn btn-success" value="Export to Excel" />
+    	</form>
   	</div>
   	<div class="col-md-1"></div>
 
