@@ -9,6 +9,10 @@
     window.location.href="login.php";
    </script> <?php
  }
+  $qry="SELECT * FROM berkas";
+  $result = mysqli_query($con,$qry);
+  $row = mysqli_fetch_all($result,MYSQLI_ASSOC);
+  mysqli_close($con); 
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -87,15 +91,16 @@
   				}
   			</style>
   			<tr>
- 			   <th>No.</th>
  			   <th>Nama Berkas</th> 
  			   <th>Action</th>
  			 </tr>
- 			 <tr>
- 			   <td style="text-align: center;">1.</td>
- 			   <td>Form C1, C2, dan C4</td>
- 			   <td><a href="#" class="btn" style="text-align: center; border: none;"><span class="icon icon-download"></span></a></td>
- 			 </tr>
+       <?php for ($i=0;$i<sizeof($row);$i++) { ?>
+          <tr>
+            <td><?php echo $row[$i]['b_name']?></td>
+            <td><a href="<?php echo $row[$i]['b_path']?>" class="btn" style="text-align: center; border: none;"><span class="icon     icon-download"></span></a></td>
+           </tr>
+          </tr>
+        <?php } ?>
   		</table>
   	</div>
   	<div class="col-md-3"></div>

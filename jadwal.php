@@ -1,5 +1,5 @@
 <?php
-  @include 'klasementabel.php';
+  @include 'action_jadwal.php';
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -43,11 +43,10 @@
 <nav id="nav">
 	<ul>
       <li><a href="index.php">Home</a></li>
-      <li><a href="left-sidebar.html">Galeri</a></li>
       <li><span>Group, Jadwal, dan Klasemen</span>
         <ul>
-        <li><a href="jadwal.php">Group dan Jadwal</a></li>
-        <li><a href="klasemen.php">Klasemen</a></li>
+        <li><a href="datagroup.php">Data Group</a></li>
+        <li><a href="jadwal.php">Jadwal</a></li>
         </ul>
       <li><a href="syarat.php">Pendaftaran</a></li>
       <li><span>Login</span>
@@ -179,9 +178,8 @@
           </thead>
           <tbody>
              <?php for ($i=0;$i<sizeof($groupA);$i++) { ?>
-            <tr>
-              <td><?php echo $groupA[$i]['u_nama']?></td>
-          
+           <tr>
+              <td><p style="font-size: 15px;"><?php echo $groupA[$i]['u_nama']?> VS <?php echo $groupA1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupA[$i]['j_tanggal']?></p></td>
             </tr>
             <?php } ?> 
           </tbody>
@@ -199,8 +197,7 @@
           <tbody>
             <?php for ($i=0;$i<sizeof($groupB);$i++) { ?>
             <tr>
-              <td><?php echo $groupB[$i]['u_nama']?></td>
-   
+              <td><p style="font-size: 15px;"><?php echo $groupB[$i]['u_nama']?> VS <?php echo $groupB1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupB[$i]['j_tanggal']?></p></td>
             </tr>
             <?php } ?>
           </tbody>
@@ -218,7 +215,7 @@
           <tbody>
            <?php for ($i=0;$i<sizeof($groupC);$i++) { ?>
             <tr>
-              <td><?php echo $groupC[$i]['u_nama']?></td>
+              <td><p style="font-size: 15px;"><?php echo $groupC[$i]['u_nama']?> VS <?php echo $groupC1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupC[$i]['j_tanggal']?></p></td>
             </tr>
             <?php } ?>   
           </tbody>
@@ -236,8 +233,7 @@
           <tbody>
             <?php for ($i=0;$i<sizeof($groupD);$i++) { ?>
             <tr>
-              <td><?php echo $groupD[$i]['u_nama']?></td>
-   
+              <td><p style="font-size: 15px;"><?php echo $groupD[$i]['u_nama']?> VS <?php echo $groupD1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupD[$i]['j_tanggal']?></p></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -255,8 +251,7 @@
           <tbody>
             <?php for ($i=0;$i<sizeof($groupE);$i++) { ?>
             <tr>
-              <td><?php echo $groupE[$i]['u_nama']?></td>
-          >
+              <td><p style="font-size: 15px;"><?php echo $groupE[$i]['u_nama']?> VS <?php echo $groupE1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupE[$i]['j_tanggal']?></p></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -274,8 +269,7 @@
           <tbody>
             <?php for ($i=0;$i<sizeof($groupF);$i++) { ?>
             <tr>
-              <td><?php echo $groupF[$i]['u_nama']?></td>
-       
+              <td><p style="font-size: 15px;"><?php echo $groupF[$i]['u_nama']?> VS <?php echo $groupF1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupF[$i]['j_tanggal']?></p></td>
             </tr>
             <?php } ?>
           </tbody>
@@ -293,8 +287,7 @@
           <tbody>
             <?php for ($i=0;$i<sizeof($groupG);$i++) { ?>
             <tr>
-              <td><?php echo $groupG[$i]['u_nama']?></td>
- 
+              <td><p style="font-size: 15px;"><?php echo $groupG[$i]['u_nama']?> VS <?php echo $groupG1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupG[$i]['j_tanggal']?></p></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -312,8 +305,7 @@
           <tbody>
             <?php for ($i=0;$i<sizeof($groupH);$i++) { ?>
             <tr>
-              <td><?php echo $groupH[$i]['u_nama']?></td>
-      
+              <td><p style="font-size: 15px;"><?php echo $groupH[$i]['u_nama']?> VS <?php echo $groupH1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupH[$i]['j_tanggal']?></p></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -359,7 +351,7 @@
           padding-bottom: 10%;
 
       }
-      
+
       .container2 td, .container2 th {
           padding-bottom: 2%;
           padding-top: 2%;
@@ -422,7 +414,7 @@
           <tbody>
            <?php for ($i=0;$i<sizeof($groupW);$i++) { ?>
             <tr>
-              <td><?php echo $groupW[$i]['u_nama']?></td>
+              <td><p style="font-size: 15px;"><?php echo $groupW[$i]['u_nama']?> VS <?php echo $groupW1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupW[$i]['j_tanggal']?></p></td>
             </tr>
             <?php } ?> 
           </tbody>
@@ -439,8 +431,8 @@
           </thead>
           <tbody>
            <?php for ($i=0;$i<sizeof($groupX);$i++) { ?>
-            <tr>
-              <td><?php echo $groupX[$i]['u_nama']?></td>
+           <tr>
+              <td><p style="font-size: 15px;"><?php echo $groupX[$i]['u_nama']?> VS <?php echo $groupX1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupX[$i]['j_tanggal']?></p></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -458,7 +450,7 @@
           <tbody>
             <?php for ($i=0;$i<sizeof($groupY);$i++) { ?>
             <tr>
-              <td><?php echo $groupY[$i]['u_nama']?></td>
+              <td><p style="font-size: 15px;"><?php echo $groupY[$i]['u_nama']?> VS <?php echo $groupY1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupY[$i]['j_tanggal']?></p></td>
             </tr>
             <?php } ?>  
           </tbody>
@@ -476,7 +468,7 @@
           <tbody>
             <?php for ($i=0;$i<sizeof($groupZ);$i++) { ?>
             <tr>
-              <td><?php echo $groupZ[$i]['u_nama']?></td>
+              <td><p style="font-size: 15px;"><?php echo $groupZ[$i]['u_nama']?> VS <?php echo $groupZ1[$i]['u_nama']?></p><p style="font-size: 15px;"><?php echo $groupZ[$i]['j_tanggal']?></p></td>
             </tr>
             <?php } ?>  
           </tbody>
