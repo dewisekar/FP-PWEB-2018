@@ -128,6 +128,11 @@
   <div class="col-md-2">
   </div>
   <hr>
+  <div class="col-md-12 text-center animate fadeInDown">
+    <h2>Tutorial</h2>
+      <iframe width="854" height="480" src="https://www.youtube.com/embed/JpisiNo8Odo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <hr>
    <div class="col-md-12 text-center animate fadeInUp">
       <h2><strong style="font-size: 40px"> GROW TO BE THE REAL CHAMPION!</strong></h2>
       <h2 style="margin-top: 2%;"><strong style="font-size: 30px;"> MORE INFORMATION:</strong></h2>
@@ -142,6 +147,7 @@
           </ul>
     </section>
     </div>
+
   </div>
 </div>
 

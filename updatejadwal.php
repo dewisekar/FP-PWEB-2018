@@ -223,7 +223,7 @@
     	  <tbody>
     	  	<?php for ($i=0;$i<sizeof($row3);$i++) { ?>
     	  	<tr>
-    	  	  <td><?php echo ++$no1?>.</td>
+    	  	  <td><?php echo ++$no?>.</td>
     	  	  <td><?php echo $row3[$i]['u_nama']?></td>
     	  	  <td><?php echo $row4[$i]['u_nama']?></td>
     	  	  <td><?php echo $row3[$i]['j_tanggal']?></td>
@@ -291,7 +291,7 @@
     	  	  <td><?php echo $row1[$i]['j_group']?></td>
     	  	  <td><?php echo $row1[$i]['j_sh']?></td>
     	  	  <td><?php echo $row1[$i]['j_sa']?></td>
-    	  	  <td><a href="?act=del&uid=<?php echo $row1[$i]['j_id']?>" class="btn" style="text-align: center; border: 	none;	"><span class="icon icon-trash"><a href="editjadwal.php?uid=<?php echo $row3[$i]['j_id']?>" class="btn" style="text-align: center; border:  none; "><span class="icon icon-edit"></span></a></span></a></td>
+    	  	  <td><a href="?act=del&uid=<?php echo $row1[$i]['j_id']?>" class="btn" style="text-align: center; border: 	none;	"><span class="icon icon-trash"><a href="editjadwal.php?uid=<?php echo $row1[$i]['j_id']?>" class="btn" style="text-align: center; border:  none; "><span class="icon icon-edit"></span></a></span></a></td>
     	  	</tr>
     	  	  <?php } ?>
     	  </tbody>

@@ -588,6 +588,7 @@
   </div>
   </div>
 </div>
+</div>
 
 <div id="footer" style="padding-top: 0">
   <h2> Catch on our social platforms: </h2>
